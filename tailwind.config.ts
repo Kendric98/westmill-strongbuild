@@ -47,6 +47,26 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Industrial Color Extensions
+        construction: {
+          yellow: "hsl(var(--construction-yellow))",
+          "yellow-dark": "hsl(var(--construction-yellow-dark))",
+        },
+        warm: {
+          brown: "hsl(var(--warm-brown))",
+          "brown-dark": "hsl(var(--warm-brown-dark))",
+        },
+        bold: {
+          orange: "hsl(var(--bold-orange))",
+          "orange-dark": "hsl(var(--bold-orange-dark))",
+        },
+        concrete: {
+          gray: "hsl(var(--concrete-gray))",
+        },
+        steel: {
+          gray: "hsl(var(--steel-gray))",
+        },
+        charcoal: "hsl(var(--charcoal))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
