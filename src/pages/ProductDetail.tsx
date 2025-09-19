@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import { ArrowLeft, Download, CheckCircle, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -5,45 +6,162 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import paversImage from "@/assets/pavers.jpg";
+import culvertsImage from "@/assets/culverts.jpg";
+import slabsImage from "@/assets/slabs.jpg";
+import wallPanelsImage from "@/assets/wall-panels.jpg";
 
 const ProductDetail = () => {
-  const product = {
-    title: "Concrete Pavers",
-    subtitle: "Standard & Colored Options",
-    category: "Paving Solutions",
-    image: paversImage,
-    description: "Our premium concrete pavers combine durability with aesthetic appeal, offering versatile solutions for driveways, walkways, patios, and commercial spaces. Available in various colors, patterns, and finishes to complement any architectural style.",
-    benefits: [
-      "Superior durability and load-bearing capacity",
-      "Weather and freeze-thaw resistant",
-      "Easy installation with interlocking design", 
-      "Low maintenance and long-lasting",
-      "Environmentally friendly and recyclable",
-      "Wide range of colors and patterns available"
-    ],
-    applications: [
-      "Residential driveways and walkways",
-      "Commercial parking areas",
-      "Public plazas and pedestrian areas",
-      "Pool decks and patios",
-      "Shopping centers and retail spaces",
-      "Industrial loading areas"
-    ],
-    specifications: [
-      { property: "Compressive Strength", value: "≥ 40 MPa", standard: "BS EN 1338" },
-      { property: "Water Absorption", value: "≤ 6%", standard: "BS EN 1338" },
-      { property: "Abrasion Resistance", value: "≤ 23 mm", standard: "BS EN 1338" },
-      { property: "Freeze-Thaw Resistance", value: "Class 3", standard: "BS EN 1338" },
-      { property: "Slip Resistance", value: "Class 3", standard: "BS EN 1338" },
-      { property: "Thickness", value: "60mm, 80mm, 100mm", standard: "Standard" }
-    ],
-    sizes: [
-      { dimension: "200 x 100 x 60mm", description: "Standard rectangular paver" },
-      { dimension: "300 x 300 x 60mm", description: "Square format paver" },
-      { dimension: "400 x 200 x 80mm", description: "Large format paver" },
-      { dimension: "200 x 100 x 80mm", description: "Heavy duty rectangular" }
-    ]
+  const { id } = useParams();
+
+  const productData = {
+    "pavers": {
+      title: "Concrete Pavers",
+      subtitle: "Standard & Colored Options",
+      category: "Paving Solutions",
+      image: paversImage,
+      description: "Our premium concrete pavers combine durability with aesthetic appeal, offering versatile solutions for driveways, walkways, patios, and commercial spaces. Available in various colors, patterns, and finishes to complement any architectural style.",
+      benefits: [
+        "Superior durability and load-bearing capacity",
+        "Weather and freeze-thaw resistant",
+        "Easy installation with interlocking design", 
+        "Low maintenance and long-lasting",
+        "Environmentally friendly and recyclable",
+        "Wide range of colors and patterns available"
+      ],
+      applications: [
+        "Residential driveways and walkways",
+        "Commercial parking areas",
+        "Public plazas and pedestrian areas",
+        "Pool decks and patios",
+        "Shopping centers and retail spaces",
+        "Industrial loading areas"
+      ],
+      specifications: [
+        { property: "Compressive Strength", value: "≥ 40 MPa", standard: "BS EN 1338" },
+        { property: "Water Absorption", value: "≤ 6%", standard: "BS EN 1338" },
+        { property: "Abrasion Resistance", value: "≤ 23 mm", standard: "BS EN 1338" },
+        { property: "Freeze-Thaw Resistance", value: "Class 3", standard: "BS EN 1338" },
+        { property: "Slip Resistance", value: "Class 3", standard: "BS EN 1338" },
+        { property: "Thickness", value: "60mm, 80mm, 100mm", standard: "Standard" }
+      ],
+      sizes: [
+        { dimension: "200 x 100 x 60mm", description: "Standard rectangular paver" },
+        { dimension: "300 x 300 x 60mm", description: "Square format paver" },
+        { dimension: "400 x 200 x 80mm", description: "Large format paver" },
+        { dimension: "200 x 100 x 80mm", description: "Heavy duty rectangular" }
+      ]
+    },
+    "culverts": {
+      title: "Drainage Culverts",
+      subtitle: "Heavy-duty Infrastructure",
+      category: "Infrastructure",
+      image: culvertsImage,
+      description: "Heavy-duty precast concrete culverts designed for efficient water management and drainage systems. Built to withstand heavy loads and extreme weather conditions.",
+      benefits: [
+        "High load-bearing capacity for heavy traffic",
+        "Resistant to water damage and erosion",
+        "Long-lasting with minimal maintenance",
+        "Quick installation reduces project time",
+        "Cost-effective solution for drainage",
+        "Various sizes available for different applications"
+      ],
+      applications: [
+        "Road and highway drainage",
+        "Agricultural water management",
+        "Urban stormwater systems",
+        "Industrial site drainage",
+        "Bridge and underpass construction",
+        "Flood control infrastructure"
+      ],
+      specifications: [
+        { property: "Load Class", value: "Class A, B, C", standard: "ASTM C506" },
+        { property: "Compressive Strength", value: "≥ 35 MPa", standard: "ASTM C76" },
+        { property: "Absorption", value: "≤ 5%", standard: "ASTM C497" },
+        { property: "Crack Width", value: "≤ 0.25mm", standard: "ASTM C497" },
+        { property: "Joint Type", value: "Tongue & Groove", standard: "Standard" }
+      ],
+      sizes: [
+        { dimension: "600mm diameter", description: "Small residential drainage" },
+        { dimension: "900mm diameter", description: "Medium commercial drainage" },
+        { dimension: "1200mm diameter", description: "Large infrastructure projects" },
+        { dimension: "1500mm diameter", description: "Highway and major roads" }
+      ]
+    },
+    "slabs": {
+      title: "Precast Slabs",
+      subtitle: "Structural Elements",
+      category: "Structural",
+      image: slabsImage,
+      description: "Engineered precast concrete slabs for rapid construction and superior performance. Ideal for flooring systems, roofing, and structural applications.",
+      benefits: [
+        "Faster construction compared to cast-in-place",
+        "Consistent quality and finish",
+        "High structural performance",
+        "Reduced labor costs",
+        "Weather-independent production",
+        "Customizable dimensions and reinforcement"
+      ],
+      applications: [
+        "Multi-story building floors",
+        "Parking garage decks",
+        "Industrial flooring systems",
+        "Bridge deck construction",
+        "Roofing applications",
+        "Mezzanine floor construction"
+      ],
+      specifications: [
+        { property: "Compressive Strength", value: "≥ 30 MPa", standard: "BS EN 13369" },
+        { property: "Flexural Strength", value: "≥ 4.5 MPa", standard: "BS EN 13369" },
+        { property: "Fire Resistance", value: "2-4 hours", standard: "BS EN 1992" },
+        { property: "Thermal Conductivity", value: "1.7 W/mK", standard: "BS EN 12664" },
+        { property: "Thickness Range", value: "150-400mm", standard: "Standard" }
+      ],
+      sizes: [
+        { dimension: "6000 x 1200 x 200mm", description: "Standard floor slab" },
+        { dimension: "8000 x 1200 x 250mm", description: "Heavy-duty floor slab" },
+        { dimension: "10000 x 1200 x 300mm", description: "Long-span floor slab" },
+        { dimension: "Custom dimensions", description: "Project-specific requirements" }
+      ]
+    },
+    "wall-panels": {
+      title: "Wall Panels",
+      subtitle: "Architectural Solutions",
+      category: "Architectural",
+      image: wallPanelsImage,
+      description: "Architectural precast panels for modern building facades and structures. Combining aesthetic appeal with structural integrity.",
+      benefits: [
+        "Superior architectural finish options",
+        "Excellent thermal performance",
+        "Fast installation process",
+        "Durable and low maintenance",
+        "Wide range of textures and colors",
+        "Cost-effective facade solution"
+      ],
+      applications: [
+        "Commercial building facades",
+        "Industrial facility walls",
+        "Residential complexes",
+        "Educational institutions",
+        "Healthcare facilities",
+        "Retail and office buildings"
+      ],
+      specifications: [
+        { property: "Panel Thickness", value: "150-300mm", standard: "BS EN 13369" },
+        { property: "Thermal Resistance", value: "2.5-4.0 m²K/W", standard: "BS EN ISO 6946" },
+        { property: "Fire Rating", value: "A1 Non-combustible", standard: "BS EN 13501" },
+        { property: "Wind Load Resistance", value: "2.5 kN/m²", standard: "BS EN 1991" },
+        { property: "Connection Type", value: "Mechanical fixings", standard: "Standard" }
+      ],
+      sizes: [
+        { dimension: "3000 x 1200 x 200mm", description: "Standard wall panel" },
+        { dimension: "6000 x 1200 x 250mm", description: "Large format panel" },
+        { dimension: "3000 x 2400 x 200mm", description: "Double-height panel" },
+        { dimension: "Custom sizes", description: "Architectural requirements" }
+      ]
+    }
   };
+
+  const product = productData[id as keyof typeof productData] || productData.pavers;
 
   return (
     <div className="min-h-screen bg-background">
@@ -58,7 +176,7 @@ const ProductDetail = () => {
               <span>/</span>
               <span className="text-foreground">{product.title}</span>
             </div>
-            <Button variant="outline" className="gap-2">
+            <Button variant="outline" className="gap-2" onClick={() => window.history.back()}>
               <ArrowLeft className="h-4 w-4" />
               Back to Products
             </Button>

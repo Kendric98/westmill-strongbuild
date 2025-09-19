@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -157,6 +158,12 @@ const Products = () => {
     "Custom"
   ];
 
+  const [selectedCategory, setSelectedCategory] = useState("All Products");
+
+  const filteredProducts = selectedCategory === "All Products" 
+    ? products 
+    : products.filter(product => product.category === selectedCategory);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -188,26 +195,32 @@ const Products = () => {
         <div className="container mx-auto px-4">
           {/* Category Filter */}
           <div className="mb-12 text-center">
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
+            <h2 className="font-display text-steel-gray mb-8">Explore Our Product Categories</h2>
+            <div className="flex flex-wrap justify-center gap-3 mb-8">
               {categories.map((category) => (
                 <Button
                   key={category}
-                  variant={category === "All Products" ? "default" : "outline"}
-                  className="rounded-full"
+                  variant={category === selectedCategory ? "default" : "outline"}
+                  className="rounded-full hover:scale-105 transition-transform"
+                  onClick={() => setSelectedCategory(category)}
                 >
                   {category}
                 </Button>
               ))}
             </div>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Showing {filteredProducts.length} {selectedCategory === "All Products" ? "products" : `${selectedCategory.toLowerCase()} products`}
+            </p>
           </div>
 
           {/* Products Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {products.map((product, index) => (
+            {filteredProducts.map((product, index) => (
               <Card 
                 key={product.id} 
                 className="industrial-card overflow-hidden group animate-scale-in cursor-pointer"
                 style={{ animationDelay: `${index * 0.05}s` }}
+                onClick={() => window.location.href = `/products/${product.id}`}
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -239,6 +252,20 @@ const Products = () => {
               </Card>
             ))}
           </div>
+
+          {/* No products found message */}
+          {filteredProducts.length === 0 && (
+            <div className="text-center py-16">
+              <p className="text-muted-foreground text-lg">No products found in this category.</p>
+              <Button 
+                variant="outline" 
+                className="mt-4"
+                onClick={() => setSelectedCategory("All Products")}
+              >
+                View All Products
+              </Button>
+            </div>
+          )}
         </div>
       </section>
 
