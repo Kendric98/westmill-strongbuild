@@ -21,7 +21,7 @@ const Header = () => {
           <div className="flex flex-col md:flex-row items-center space-y-1 md:space-y-0 md:space-x-6">
             <div className="flex items-center space-x-2">
               <Phone className="h-4 w-4" />
-              <span>+254 700 123 456</span>
+              <span>+254 793 569 990</span>
             </div>
             <div className="flex items-center space-x-2">
               <Mail className="h-4 w-4" />
@@ -67,9 +67,11 @@ const Header = () => {
 
             {/* CTA Button & Mobile Menu */}
             <div className="flex items-center space-x-4">
-              <Button className="btn-primary hidden md:inline-flex">
-                Get Quote
-              </Button>
+                <a href="#contact">
+                <Button className="btn-primary hidden md:inline-flex">
+                  Get Quote
+                </Button>
+                </a>
               
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}

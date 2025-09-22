@@ -91,11 +91,11 @@ const Testimonials = () => {
         {/* Trust Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center animate-fade-in">
           <div>
-            <div className="text-4xl font-bold text-construction-yellow mb-2">500+</div>
+            <div className="text-4xl font-bold text-construction-yellow mb-2">100+</div>
             <div className="text-muted-foreground">Projects Completed</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-construction-yellow mb-2">15+</div>
+            <div className="text-4xl font-bold text-construction-yellow mb-2">10+</div>
             <div className="text-muted-foreground">Years Experience</div>
           </div>
           <div>

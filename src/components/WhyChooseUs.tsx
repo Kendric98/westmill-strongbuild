@@ -24,8 +24,8 @@ const WhyChooseUs = () => {
     {
       icon: Users,
       title: "Expert Team",
-      description: "15+ years of combined experience in precast manufacturing. Our engineers and technicians deliver excellence in every product.",
-      stats: "15+ Years Experience"
+      description: "10+ years of combined experience in precast manufacturing. Our engineers and technicians deliver excellence in every product.",
+      stats: "10+ Years Experience"
     },
     {
       icon: Clock,

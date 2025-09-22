@@ -1,287 +1,287 @@
-import { useState } from "react";
-import { MapPin, Calendar, ExternalLink, ChevronDown, ChevronUp, Star } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import paversImage from "@/assets/pavers.jpg";
-import culvertsImage from "@/assets/culverts.jpg";
-import slabsImage from "@/assets/slabs.jpg";
-import wallPanelsImage from "@/assets/wall-panels.jpg";
 
-const Projects = () => {
-  const [expandedProject, setExpandedProject] = useState<string | null>(null);
+// Example images for each project type (replace with your actual image paths)
+const projectImages: Record<string, string> = {
+  "FAHARI RESIDENCE": "/images/projects/fahari.jpg",
+  "KOMAROCK": "/images/projects/komarock.jpg",
+  "MADISON LIFE ASSURANCE": "/images/projects/madison.jpg",
+  "REHANI": "/images/projects/rehani.jpg",
+  "KOMAROCK HEIGHTS": "/images/projects/komarock-heights.jpg",
+  "MERU COUNTY": "/images/projects/meru.jpg",
+  "ST PETER'S CRAVERS": "/images/projects/paving.jpg",
+  "NYERI STAGE": "/images/projects/nyeri.jpg",
+  "RUIRU STAGE": "/images/projects/ruiru.jpg",
+  "KILIMAMBOGO TEACHERS COLLEGE": "/images/projects/kilimanbogo.jpg",
+  "UPGRANDING KIBIRICHA MARKET LOOP ROAD": "/images/projects/kibiricha.jpg",
+  "SOGEA SATON KENYA": "/images/projects/sogea.jpg",
+  "GIANT MILLERS LIMITED": "/images/projects/giant-millers.jpg",
+  "MT KENYA UNIVERSITY": "/images/projects/mt-kenya.jpg",
+  "KAHAWA SUKARI PCEA": "/images/projects/kahawa.jpg",
+  "RIFT VALLEY ROLLERS KAHAWA BALLACK": "/images/projects/rift-valley.jpg",
+  "THIKA WATER & SEWERAGE": "/images/projects/thika.jpg",
+  "JUBILEE FEEDS LIMITED": "/images/projects/jubilee.jpg",
+  "CHINA RAILWAY SEVENTH GROUP": "/images/projects/china-railway.jpg",
+  "STRABAG INTERNATIONAL/THIBA DAM": "/images/projects/strabag.jpg",
+  "ALBIZIA LTD": "/images/projects/albizzia.jpg",
+  "ACK CATHEDRAW NYERI": "/images/projects/ack-nyeri.jpg",
+  "CONSTANT MOTORS & INVESTMENT LTD": "/images/projects/constant-motors.jpg",
+};
 
-  const projects = [
-    {
-      id: "nairobi-mall",
-      title: "Nairobi Central Shopping Mall",
-      location: "Nairobi, Kenya",
-      year: "2024",
-      image: wallPanelsImage,
-      category: "Commercial",
-      products: ["Wall Panels", "Precast Slabs", "Pavers"],
-      description: "Complete precast solution for a modern 5-story shopping complex featuring architectural wall panels, structural slabs, and decorative paving. The project showcased our ability to deliver large-scale commercial solutions on time and within budget.",
-      testimonial: "West Mill Concrete delivered exceptional quality and professionalism. Their precast solutions helped us complete the project 3 months ahead of schedule.",
-      client: "Sarah Kimani, Project Manager"
-    },
-    {
-      id: "industrial-park",
-      title: "Mombasa Industrial Park Development",
-      location: "Mombasa, Kenya", 
-      year: "2024",
-      image: slabsImage,
-      category: "Industrial",
-      products: ["Heavy Duty Slabs", "Drainage Culverts", "Fencing Posts"],
-      description: "Comprehensive infrastructure development using heavy-duty precast slabs for warehouse flooring, drainage culverts for water management, and security fencing throughout the 50-acre industrial complex.",
-      testimonial: "The quality of West Mill's precast products exceeded our expectations. Their technical expertise was invaluable throughout the project.",
-      client: "John Mwangi, Site Engineer"
-    },
-    {
-      id: "university-campus",
-      title: "Strathmore University Expansion",
-      location: "Nairobi, Kenya",
-      year: "2023",
-      image: paversImage,
-      category: "Educational",
-      products: ["Concrete Pavers", "Concrete Benches", "Kerb Stones"],
-      description: "Campus beautification project featuring colored concrete pavers for walkways, custom concrete benches for outdoor study areas, and precision kerb stones for landscaping definition.",
-      testimonial: "West Mill's attention to detail and commitment to sustainability aligned perfectly with our campus development goals.",
-      client: "Dr. Mary Ochieng, Facilities Director"
-    },
-    {
-      id: "highway-infrastructure",
-      title: "Thika Highway Drainage Upgrade",
-      location: "Kiambu County, Kenya",
-      year: "2023",
-      image: culvertsImage,
-      category: "Infrastructure",
-      products: ["Drainage Culverts", "Drainage Blocks", "Kerb Stones"],
-      description: "Critical infrastructure upgrade involving large-diameter culverts, specialized drainage blocks, and high-quality kerb stones for improved road safety and water management along the busy highway corridor.",
-      testimonial: "Their engineering expertise and quality manufacturing ensured our drainage system meets international standards.",
-      client: "Eng. Peter Mutua, KENHA"
-    },
-    {
-      id: "residential-estate",
-      title: "Kilimani Premium Residences",
-      location: "Nairobi, Kenya",
-      year: "2023",
-      image: wallPanelsImage,
-      category: "Residential",
-      products: ["Wall Panels", "Pavers", "Wall Copings"],
-      description: "Luxury residential development featuring architectural wall panels for modern facade design, premium pavers for driveways and courtyards, and decorative wall copings for boundary walls.",
-      testimonial: "The aesthetic quality and durability of West Mill's products added significant value to our premium development.",
-      client: "James Kariuki, Developer"
-    },
-    {
-      id: "factory-complex",
-      title: "East Africa Cement Plant",
-      location: "Machakos, Kenya",
-      year: "2022",
-      image: slabsImage,
-      category: "Industrial",
-      products: ["Industrial Slabs", "Powerline Blocks", "Fencing Posts"],
-      description: "Heavy industrial application featuring reinforced precast slabs for equipment foundations, specialized powerline blocks for electrical infrastructure, and robust fencing posts for perimeter security.",
-      testimonial: "West Mill's industrial-grade products have performed flawlessly under extreme operational conditions.",
-      client: "Ahmed Hassan, Plant Manager"
-    },
-    {
-      id: "public-park",
-      title: "Uhuru Park Renovation",
-      location: "Nairobi, Kenya",
-      year: "2022",
-      image: paversImage,
-      category: "Public",
-      products: ["Concrete Benches", "Pavers", "Ventilation Blocks"],
-      description: "Public space enhancement project featuring durable concrete benches for seating areas, decorative pavers for walkways, and ventilation blocks for underground utility access.",
-      testimonial: "Their products have withstood heavy public use while maintaining their aesthetic appeal.",
-      client: "Grace Wanjiku, City Council"
-    },
-    {
-      id: "airport-expansion",
-      title: "JKIA Terminal Expansion",
-      location: "Nairobi, Kenya",
-      year: "2022",
-      image: wallPanelsImage,
-      category: "Transportation",
-      products: ["Architectural Panels", "Heavy Duty Slabs", "Drainage Systems"],
-      description: "Airport infrastructure project featuring large-format architectural panels for terminal facades, heavy-duty slabs for aircraft loading areas, and comprehensive drainage solutions.",
-      testimonial: "West Mill delivered world-class quality that meets international aviation standards.",
-      client: "Capt. David Kimutai, KAA"
-    },
-    {
-      id: "water-treatment",
-      title: "Nyeri Water Treatment Plant",
-      location: "Nyeri, Kenya",
-      year: "2021",
-      image: culvertsImage,
-      category: "Utilities",
-      products: ["Specialized Culverts", "Wall Panels", "Drainage Blocks"],
-      description: "Water infrastructure project featuring corrosion-resistant culverts for water conveyance, structural wall panels for treatment facility construction, and specialized drainage blocks.",
-      testimonial: "Their expertise in water infrastructure applications saved us significant time and costs.",
-      client: "Eng. Ruth Wambui, NYWASCO"
-    },
-    {
-      id: "school-compound",
-      title: "Alliance High School Upgrade",
-      location: "Kikuyu, Kenya",
-      year: "2021",
-      image: paversImage,
-      category: "Educational",
-      products: ["Pavers", "Concrete Benches", "Hollow Blocks"],
-      description: "School infrastructure improvement featuring slip-resistant pavers for sports courts, ergonomic concrete benches for outdoor learning spaces, and hollow blocks for new classroom construction.",
-      testimonial: "West Mill's products created a safe and inspiring learning environment for our students.",
-      client: "Principal Michael Ndung'u"
-    }
-  ];
+const groupedProjects = [
+  {
+    group: "Residential Projects",
+    projects: [
+      {
+        name: "Fahari Grounds- Levelling 3/4 Acre Land",
+        customer: "FAHARI RESIDENCE",
+        location: "Fahari Estate, Nairobi",
+        details: "Land levelling and site preparation for new residential development.",
+      },
+      {
+        name: "Fahari Phase 2, Civil works",
+        customer: "FAHARI RESIDENCE",
+        location: "Fahari Estate, Nairobi",
+        details: "Civil works including drainage and access roads for Phase 2.",
+      },
+      {
+        name: "Fahari Phase 4 & 5 Clearance & Excavation Works",
+        customer: "FAHARI RESIDENCE",
+        location: "Fahari Estate, Nairobi",
+        details: "Clearance and excavation for new housing units.",
+      },
+      {
+        name: "Fahari Residence by THETA DAM construction of Access and circulation Roads within Phase 4&5",
+        customer: "FAHARI RESIDENCE",
+        location: "Fahari Estate, Nairobi",
+        details: "Construction of access and circulation roads for improved connectivity.",
+      },
+      {
+        name: "Fahari Wall Phase 3",
+        customer: "FAHARI RESIDENCE",
+        location: "Fahari Estate, Nairobi",
+        details: "Perimeter wall construction for enhanced security.",
+      },
+      {
+        name: "Villa Kazi Homes Development (Parking and Entrance Roadworks)",
+        customer: "MADISON LIFE ASSURANCE",
+        location: "Villa Kazi, Nairobi",
+        details: "Parking area and entrance roadworks for new homes.",
+      },
+      {
+        name: "Villa Kazi Homes Development (Sewer and Reticulation Phase 1)",
+        customer: "MADISON LIFE ASSURANCE",
+        location: "Villa Kazi, Nairobi",
+        details: "Sewer system installation and reticulation for Phase 1.",
+      },
+      {
+        name: "Rehani Beautification, Phase 1",
+        customer: "REHANI",
+        location: "Rehani Estate, Nairobi",
+        details: "Beautification and landscaping for residential estate.",
+      },
+      {
+        name: "Perimeter wall & cabros work at Komarock Height",
+        customer: "KOMAROCK HEIGHTS",
+        location: "Komarock Heights, Nairobi",
+        details: "Perimeter wall and cabro paving for residential complex.",
+      },
+    ],
+  },
+  {
+    group: "Commercial & Institutional Projects",
+    projects: [
+      {
+        name: "K-MALL Project, Komarock",
+        customer: "KOMAROCK",
+        location: "Komarock, Nairobi",
+        details: "Construction of commercial mall including parking and access roads.",
+      },
+      {
+        name: "Komarock Civil Works, Phase 2",
+        customer: "KOMAROCK",
+        location: "Komarock, Nairobi",
+        details: "Civil works for commercial and institutional buildings.",
+      },
+      {
+        name: "Komarock Wall Phase 3",
+        customer: "KOMAROCK",
+        location: "Komarock, Nairobi",
+        details: "Boundary wall construction for commercial property.",
+      },
+      {
+        name: "MACADAMIA PROCESSING PLANT",
+        customer: "MERU COUNTY",
+        location: "Meru County",
+        details: "Construction of macadamia processing facility.",
+      },
+      {
+        name: "CONSTRUCTION OF A COMMERCIAL BUILDING",
+        customer: "CONSTANT MOTORS & INVESTMENT LTD",
+        location: "Nairobi",
+        details: "Commercial building construction for automotive business.",
+      },
+      {
+        name: "NTHARENE MARKET 1",
+        customer: "MERU COUNTY",
+        location: "Ntharene, Meru County",
+        details: "Market construction for local vendors.",
+      },
+      {
+        name: "NTHARENE MARKET 2",
+        customer: "MERU COUNTY",
+        location: "Ntharene, Meru County",
+        details: "Expansion of market facilities.",
+      },
+    ],
+  },
+  {
+    group: "Paving & Drainage Projects",
+    projects: [
+      {
+        name: "PAVING WORKS",
+        customer: "ST PETER'S CRAVERS",
+        location: "Nairobi",
+        details: "Paving works for church grounds.",
+      },
+      {
+        name: "PAVING WORKS",
+        customer: "NYERI STAGE",
+        location: "Nyeri",
+        details: "Paving works for public transport stage.",
+      },
+      {
+        name: "PAVING WORKS",
+        customer: "RUIRU STAGE",
+        location: "Ruiru",
+        details: "Paving works for public transport stage.",
+      },
+      {
+        name: "PAVING WORKS",
+        customer: "KILIMAMBOGO TEACHERS COLLEGE",
+        location: "Kilimambogo, Thika",
+        details: "Paving works for college campus.",
+      },
+      {
+        name: "PAVING WORKS",
+        customer: "UPGRANDING KIBIRICHA MARKET LOOP ROAD",
+        location: "Kibiricha, Meru",
+        details: "Upgrading market loop road with paving blocks.",
+      },
+      {
+        name: "PAVING WORKS & DRAINAGE",
+        customer: "SOGEA SATON KENYA",
+        location: "Nairobi",
+        details: "Paving and drainage works for commercial site.",
+      },
+      {
+        name: "PAVING WORKS",
+        customer: "GIANT MILLERS LIMITED",
+        location: "Nairobi",
+        details: "Paving works for milling facility.",
+      },
+      {
+        name: "PAVING WORKS",
+        customer: "MT KENYA UNIVERSITY",
+        location: "Thika",
+        details: "Paving works for university campus.",
+      },
+      {
+        name: "PAVING WORKS",
+        customer: "KAHAWA SUKARI PCEA",
+        location: "Kahawa Sukari, Nairobi",
+        details: "Paving works for church compound.",
+      },
+      {
+        name: "SUPPLY OF PAVING BLOCK",
+        customer: "RIFT VALLEY ROLLERS KAHAWA BALLACK",
+        location: "Kahawa Ballack, Nairobi",
+        details: "Supply of paving blocks for sports facility.",
+      },
+      {
+        name: "PAVING WORKS",
+        customer: "THIKA WATER & SEWERAGE",
+        location: "Thika",
+        details: "Paving works for water and sewerage company.",
+      },
+      {
+        name: "PAVING WORKS",
+        customer: "JUBILEE FEEDS LIMITED",
+        location: "Nairobi",
+        details: "Paving works for animal feeds factory.",
+      },
+      {
+        name: "PAVING WORKS",
+        customer: "CHINA RAILWAY SEVENTH GROUP",
+        location: "Nairobi",
+        details: "Paving works for railway construction site.",
+      },
+      {
+        name: "PAVING WORKS & SUPPLY OF MATERIALS",
+        customer: "STRABAG INTERNATIONAL/THIBA DAM",
+        location: "Thiba Dam, Kirinyaga",
+        details: "Paving works and supply of materials for dam construction.",
+      },
+      {
+        name: "ACCESS ROAD & DRAINAGE WORKS AT ALBIZZIA",
+        customer: "ALBIZIA LTD",
+        location: "Nairobi",
+        details: "Access road and drainage works for commercial property.",
+      },
+      {
+        name: "PAVING WORKS",
+        customer: "ACK CATHEDRAW NYERI",
+        location: "Nyeri",
+        details: "Paving works for cathedral grounds.",
+      },
+    ],
+  },
+];
 
-  const categories = ["All Projects", "Commercial", "Industrial", "Educational", "Infrastructure", "Residential", "Public", "Transportation", "Utilities"];
-
-  return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      {/* Hero Section */}
-      <section className="hero-gradient text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="font-display text-white mb-6 animate-fade-in">
-            Our <span className="text-construction-yellow">Project Portfolio</span>
-          </h1>
-          <p className="text-xl max-w-3xl mx-auto mb-8 opacity-90 animate-slide-up">
-            Discover how West Mill Concrete has contributed to Kenya's infrastructure development 
-            through innovative precast solutions across diverse sectors.
-          </p>
-          <div className="flex items-center justify-center space-x-8 text-sm animate-scale-in">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-construction-yellow">500+</div>
-              <div>Projects Completed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-construction-yellow">15+</div>
-              <div>Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-construction-yellow">50+</div>
-              <div>Happy Clients</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Grid */}
-      <section className="py-20 concrete-texture">
-        <div className="container mx-auto px-4">
-          {/* Category Filter */}
-          <div className="mb-12 text-center">
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {categories.map((category) => (
-                <Button
-                  key={category}
-                  variant={category === "All Projects" ? "default" : "outline"}
-                  className="rounded-full"
+const Projects = () => (
+  <div className="min-h-screen bg-background">
+    <Header />
+    <section className="py-16 bg-gradient-to-br from-[#f66202] to-yellow-400 text-white">
+      <div className="container mx-auto px-4 text-center">
+        <h1 className="font-display text-3xl md:text-4xl mb-4">Our Completed Projects</h1>
+        <p className="text-lg max-w-2xl mx-auto mb-8">
+          Explore a selection of our recent work, grouped by project type.
+        </p>
+      </div>
+    </section>
+    <section className="py-12 bg-white">
+      <div className="container mx-auto px-4 grid grid-cols-1 gap-12">
+        {groupedProjects.map((group) => (
+          <div key={group.group}>
+            <h2 className="font-heading text-steel-gray text-2xl mb-6">{group.group}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {group.projects.map((project, idx) => (
+                <div
+                  key={project.name + project.customer + idx}
+                  className="bg-concrete-gray rounded-xl shadow-lg p-0 flex flex-col hover:shadow-xl transition-shadow overflow-hidden"
                 >
-                  {category}
-                </Button>
+                  <img
+                    src={projectImages[project.customer] || "/images/projects/default.jpg"}
+                    alt={project.customer}
+                    className="w-full h-40 object-cover"
+                  />
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="font-semibold text-steel-gray text-lg mb-2">{project.name}</h3>
+                    <p className="text-construction-yellow font-medium mb-1">{project.customer}</p>
+                    <p className="text-steel-gray text-sm mb-1">
+                      <span className="font-semibold">Location:</span> {project.location}
+                    </p>
+                    <p className="text-muted-foreground text-sm mb-2">{project.details}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
-
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card 
-                key={project.id} 
-                className="industrial-card overflow-hidden animate-scale-in"
-                style={{ animationDelay: `${index * 0.05}s` }}
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <Badge className="bg-construction-yellow text-charcoal">
-                      {project.category}
-                    </Badge>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <Badge variant="outline" className="bg-white/90 text-steel-gray border-white">
-                      {project.year}
-                    </Badge>
-                  </div>
-                </div>
-                
-                <CardContent className="p-6">
-                  <h3 className="font-heading text-steel-gray mb-2">{project.title}</h3>
-                  <div className="flex items-center text-muted-foreground text-sm mb-4">
-                    <MapPin className="h-4 w-4 mr-1" />
-                    <span>{project.location}</span>
-                  </div>
-
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {project.products.map((product) => (
-                      <Badge key={product} variant="outline" className="text-xs">
-                        {product}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  <Collapsible
-                    open={expandedProject === project.id}
-                    onOpenChange={() => setExpandedProject(
-                      expandedProject === project.id ? null : project.id
-                    )}
-                  >
-                    <CollapsibleTrigger asChild>
-                      <Button variant="ghost" className="w-full justify-between p-0 h-auto">
-                        <span className="text-sm font-medium">View Details</span>
-                        {expandedProject === project.id ? 
-                          <ChevronUp className="h-4 w-4" /> : 
-                          <ChevronDown className="h-4 w-4" />
-                        }
-                      </Button>
-                    </CollapsibleTrigger>
-                    
-                    <CollapsibleContent className="mt-4 space-y-4">
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {project.description}
-                      </p>
-                      
-                      <div className="bg-concrete-gray p-4 rounded-lg">
-                        <div className="flex items-start space-x-2">
-                          <div className="flex text-construction-yellow">
-                            {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="h-4 w-4 fill-current" />
-                            ))}
-                          </div>
-                        </div>
-                        <blockquote className="text-sm italic text-steel-gray mt-2">
-                          "{project.testimonial}"
-                        </blockquote>
-                        <cite className="text-xs text-muted-foreground mt-2 block">
-                          — {project.client}
-                        </cite>
-                      </div>
-
-                      <Button className="w-full btn-primary">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        View Full Case Study
-                      </Button>
-                    </CollapsibleContent>
-                  </Collapsible>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  );
-};
+        ))}
+      </div>
+    </section>
+    <Footer />
+  </div>
+);
 
 export default Projects;

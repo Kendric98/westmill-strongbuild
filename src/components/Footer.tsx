@@ -32,31 +32,60 @@ const Footer = () => {
           </div>
 
           {/* Products */}
-          <div>
+            <div>
             <h4 className="text-lg font-semibold mb-6">Our Products</h4>
             <ul className="space-y-3 text-gray-300">
-              <li><a href="#" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Concrete Pavers</a></li>
-              <li><a href="#" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Drainage Culverts</a></li>
-              <li><a href="#" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Precast Slabs</a></li>
-              <li><a href="#" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Wall Panels</a></li>
-              <li><a href="#" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Kerb Stones</a></li>
-              <li><a href="#" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Concrete Benches</a></li>
-              <li><a href="#" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Drainage Blocks</a></li>
+              <li><a href="/products/concrete-pavers" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Concrete Pavers</a></li>
+              <li><a href="/products/drainage-culverts" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Drainage Culverts</a></li>
+              <li><a href="/products/precast-slabs" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Precast Slabs</a></li>
+              <li><a href="/products/wall-panels" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Wall Panels</a></li>
+              <li><a href="/products/kerb-stones" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Kerb Stones</a></li>
+              <li><a href="/products/concrete-benches" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Concrete Benches</a></li>
+              <li><a href="/products/drainage-blocks" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Drainage Blocks</a></li>
             </ul>
-          </div>
+            </div>
 
           {/* Services */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Services</h4>
-            <ul className="space-y-3 text-gray-300">
-              <li><a href="#" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Custom Manufacturing</a></li>
-              <li><a href="#" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Installation Services</a></li>
-              <li><a href="#" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Project Consultation</a></li>
-              <li><a href="#" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Technical Support</a></li>
-              <li><a href="#" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Nationwide Delivery</a></li>
-              <li><a href="#" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">Quality Assurance</a></li>
-            </ul>
-          </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-6">Services</h4>
+              <ul className="space-y-3 text-gray-300">
+                <li>
+                  <a href="/services" className="hover:text-construction-yellow transition-[var(--transition-smooth)] font-semibold">
+                    All Services
+                  </a>
+                </li>
+                <li>
+                  <a href="/services/custom-manufacturing" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
+                    Custom Manufacturing
+                  </a>
+                </li>
+                <li>
+                  <a href="/services/installation" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
+                    Installation Services
+                  </a>
+                </li>
+                <li>
+                  <a href="/services/consultation" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
+                    Project Consultation
+                  </a>
+                </li>
+                <li>
+                  <a href="/services/technical-support" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
+                    Technical Support
+                  </a>
+                </li>
+                <li>
+                  <a href="/services/delivery" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
+                    Nationwide Delivery
+                  </a>
+                </li>
+                <li>
+                  <a href="/services/quality-assurance" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
+                    Quality Assurance
+                  </a>
+                </li>
+              </ul>
+            </div>
 
           {/* Contact Info */}
           <div>
@@ -65,15 +94,15 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-construction-yellow flex-shrink-0 mt-1" />
                 <div>
-                  <p className="text-gray-300">Industrial Area, Nairobi</p>
-                  <p className="text-gray-300">Kenya</p>
+                  <p className="text-gray-300">Along Thika Road, <br />Opposite Mang'u High School</p>
+                  <p className="text-gray-300">Kiambu, Kenya</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-construction-yellow flex-shrink-0" />
                 <div>
+                  <p className="text-gray-300">+254 793 569 990</p>
                   <p className="text-gray-300">+254 700 123 456</p>
-                  <p className="text-gray-300">+254 722 789 012</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">

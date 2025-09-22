@@ -229,6 +229,28 @@
   .form-input {
     @apply border rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-construction-yellow;
   }
+
+  /* Remove keyframes float and .animate-float if you only want hover animation */
+
+  /* Add hover effect for floating image */
+  .floating-image {
+    transition: 
+      transform 0.5s cubic-bezier(0.4,0,0.2,1), 
+      box-shadow 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+  .floating-image:hover {
+    transform: scale(1.08) rotate(3deg) translateX(-40px);
+    box-shadow: 0 0 60px 10px #ffd700, 0 0 120px 30px #f66202;
+  }
+
+  @keyframes slideLR {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-40px); }
+  }
+  .floating-slide {
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    animation: slideLR 3s ease-in-out infinite;
+  }
 }
 
 @layer utilities {

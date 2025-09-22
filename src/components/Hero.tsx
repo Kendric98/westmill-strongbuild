@@ -1,6 +1,7 @@
 import { ArrowRight, Shield, Clock, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-industrial.jpg";
+import floatingImage from "@/assets/floating-concrete.png"; // Add your floating image to assets
 
 const Hero = () => {
   return (
@@ -15,8 +16,8 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 to-steel-gray/60"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl">
+      <div className="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center">
+        <div className="max-w-4xl flex-1">
           {/* Main Headline */}
           <div className="animate-fade-in">
             <h1 className="font-hero text-white mb-6">
@@ -38,13 +39,13 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-scale-in">
             <Button asChild className="btn-primary text-lg px-8 py-4">
               <a href="/products">
-              View Products
-              <ArrowRight className="ml-2 h-5 w-5" />
+                View Products
+                <ArrowRight className="ml-2 h-5 w-5" />
               </a>
             </Button>
             <Button asChild className="btn-outline text-lg px-8 py-4">
-              <a href="/#contact">
-              Get Quote Today
+              <a href="/contact">
+                Get Quote Today
               </a>
             </Button>
           </div>
@@ -76,15 +77,28 @@ const Hero = () => {
                 <Award className="h-6 w-6 text-construction-yellow" />
               </div>
               <div>
-                <h3 className="font-semibold">15+ Years</h3>
+                <h3 className="font-semibold">10+ Years</h3>
                 <p className="text-gray-300 text-sm">Industry Experience</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      
+        {/* Floating Image on the Right */}
+        <div className="hidden md:block flex-1 relative">
+          {/* Glowing shadow behind the image */}
+          <div
+            className="absolute right-8 top-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-gradient-to-br from-yellow-400 via-[#f66202] to-yellow-500 blur-3xl opacity-60 z-10"
+            aria-hidden="true"
+          />
+          <img
+            src={floatingImage}
+            alt="Floating Concrete Product"
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] max-w-md drop-shadow-xl animate-float rounded-3xl transition-transform duration-500 hover:scale-105 hover:rotate-3 z-20"
+            style={{ zIndex: 20 }}
+          />
+        </div>
+      </div>
     </section>
   );
 };
