@@ -159,10 +159,15 @@ const Products = () => {
   ];
 
   const [selectedCategory, setSelectedCategory] = useState("All Products");
+  const [expandedProduct, setExpandedProduct] = useState<string | null>(null);
 
   const filteredProducts = selectedCategory === "All Products" 
     ? products 
     : products.filter(product => product.category === selectedCategory);
+
+  const toggleProductExpansion = (productId: string) => {
+    setExpandedProduct(expandedProduct === productId ? null : productId);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -213,20 +218,19 @@ const Products = () => {
             </p>
           </div>
 
-          {/* Products Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {/* Products Grid with Expandable Views */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProducts.map((product, index) => (
               <Card 
                 key={product.id} 
-                className="industrial-card overflow-hidden group animate-scale-in cursor-pointer"
+                className="industrial-card overflow-hidden group animate-scale-in"
                 style={{ animationDelay: `${index * 0.05}s` }}
-                onClick={() => window.location.href = `/products/${product.id}`}
               >
                 <div className="relative overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute top-4 left-4">
@@ -234,20 +238,104 @@ const Products = () => {
                       {product.category}
                     </span>
                   </div>
-                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Button className="w-full btn-primary text-sm">
-                      View Details
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
+                  {product.id === "pavers" && (
+                    <div className="absolute top-4 right-4">
+                      <span className="bg-bold-orange text-white px-2 py-1 rounded-full text-xs font-semibold">
+                        Featured
+                      </span>
+                    </div>
+                  )}
                 </div>
                 
                 <CardContent className="p-6">
                   <h3 className="font-heading text-steel-gray mb-2">{product.title}</h3>
                   <p className="text-construction-yellow font-medium text-sm mb-3">{product.subtitle}</p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                     {product.description}
                   </p>
+                  
+                  {/* Expandable Product Details */}
+                  {expandedProduct === product.id && (
+                    <div className="border-t border-border pt-4 mt-4 animate-fade-in">
+                      {product.id === "pavers" ? (
+                        <div className="space-y-4">
+                          <div>
+                            <h4 className="font-semibold text-steel-gray mb-2">Available Options:</h4>
+                            <div className="grid grid-cols-2 gap-2 text-xs">
+                              <div className="flex items-center">
+                                <div className="w-2 h-2 bg-construction-yellow rounded mr-2"></div>
+                                Standard Gray
+                              </div>
+                              <div className="flex items-center">
+                                <div className="w-2 h-2 bg-red-500 rounded mr-2"></div>
+                                Red Clay
+                              </div>
+                              <div className="flex items-center">
+                                <div className="w-2 h-2 bg-yellow-600 rounded mr-2"></div>
+                                Ochre
+                              </div>
+                              <div className="flex items-center">
+                                <div className="w-2 h-2 bg-green-600 rounded mr-2"></div>
+                                Forest Green
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-steel-gray mb-2">Pricing Range:</h4>
+                            <p className="text-sm text-muted-foreground">KSh 150 - 350 per m² (varies by design)</p>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-steel-gray mb-2">Sizes Available:</h4>
+                            <p className="text-sm text-muted-foreground">200x100x60mm, 200x200x60mm, Custom sizes</p>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="space-y-3">
+                          <div>
+                            <h4 className="font-semibold text-steel-gray mb-2">Key Features:</h4>
+                            <ul className="text-xs text-muted-foreground space-y-1">
+                              <li>• High strength concrete</li>
+                              <li>• Weather resistant</li>
+                              <li>• Easy installation</li>
+                              <li>• Long-lasting durability</li>
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-steel-gray mb-2">Applications:</h4>
+                            <p className="text-sm text-muted-foreground">
+                              Suitable for residential, commercial, and industrial projects
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                      <Button 
+                        className="w-full mt-4 btn-outline text-sm"
+                        onClick={() => window.location.href = `/products/${product.id}`}
+                      >
+                        View Full Specifications
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </div>
+                  )}
+                  
+                  {/* Action Buttons */}
+                  <div className="flex gap-2 mt-4">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="flex-1"
+                      onClick={() => toggleProductExpansion(product.id)}
+                    >
+                      {expandedProduct === product.id ? 'Show Less' : 'Quick View'}
+                    </Button>
+                    <Button 
+                      size="sm"
+                      className="btn-primary flex-1"
+                      onClick={() => window.location.href = `/contact?product=${product.id}`}
+                    >
+                      Get Quote
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
