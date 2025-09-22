@@ -1,38 +1,12 @@
-# cpanel.yml
-# CI/CD pipeline configuration for Westmill Strongbuild project
+# cPanel Git Deployment Configuration for Westmill Strongbuild
 
-name: CPanel Deployment
+# This file is NOT for GitHub Actions or CI/CD.
+# It is used by cPanel's built-in Git deployment system.
+# See: https://docs.cpanel.net/knowledge-base/web-services/guide-to-git-deployment/
 
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
-      - name: Upload to cPanel via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.0
-        with:
-          server: ${{ secrets.CPANEL_FTP_SERVER }}
-          username: ${{ secrets.CPANEL_FTP_USERNAME }}
-          password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-          local-dir: ./dist
-          server-dir: /public_html/
+deployment:
+  tasks:
+    - export NODE_ENV=production
+    - npm install --production
+    - npm run build
+    - rsync -a --delete dist/ /home/$CPANEL_USER/public_html/
