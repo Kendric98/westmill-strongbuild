@@ -9,16 +9,8 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div>
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 accent-gradient rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">WM</span>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">West Mill Concrete</h3>
-                <p className="text-gray-300 text-sm">Precast Solutions</p>
-              </div>
-            </div>
+            <div>
+            <img src="/wm.svg" alt="West Mill Concrete Logo" className="w-25 h-16 mb-6" />
             <p className="text-gray-300 mb-6 leading-relaxed">
               Kenya's premier precast concrete manufacturer, delivering quality solutions 
               that build the future. Strong, reliable, built to last.

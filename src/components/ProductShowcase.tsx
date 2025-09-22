@@ -92,13 +92,7 @@ const ProductShowcase = () => {
                   ))}
                 </div>
 
-                <Button 
-                  variant="outline" 
-                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-[var(--transition-smooth)]"
-                >
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                
               </CardContent>
             </Card>
           ))}
@@ -135,13 +129,15 @@ const ProductShowcase = () => {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="btn-primary">
-                View All Products
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button className="btn-accent">
-                Download Catalog
-              </Button>
+                <div className="flex-1 flex justify-end items-center">
+                  <Button asChild className="btn-primary">
+                    <a href="/products">
+                      View All Products
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </a>
+                  </Button>
+                </div>
+              
             </div>
           </div>
         </div>

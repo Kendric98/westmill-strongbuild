@@ -224,6 +224,11 @@
     @apply btn-industrial border-2 border-primary text-primary bg-transparent
            hover:bg-primary hover:text-primary-foreground;
   }
+
+  /* Industrial Forms */
+  .form-input {
+    @apply border rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-construction-yellow;
+  }
 }
 
 @layer utilities {
@@ -255,10 +260,28 @@
     to { opacity: 1; transform: scale(1); }
   }
   
-  /* Responsive Typography */
+  /* Responsive Typography & Spacing */
   @media (max-width: 768px) {
-    .font-hero { font-size: 2.5rem; }
-    .font-display { font-size: 2rem; }
-    .font-heading { font-size: 1.5rem; }
+    html {
+      font-size: 16px;
+    }
+    h1, .font-hero { font-size: 2.2rem; }
+    h2, .font-display { font-size: 1.6rem; }
+    h3, .font-heading { font-size: 1.2rem; }
+    .btn-primary, .btn-accent, .btn-outline {
+      padding: 1rem 1.5rem;
+      font-size: 1.1rem;
+      border-radius: 0.75rem;
+    }
+    section, .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  /* Make tap targets larger */
+  button, [role="button"], input, select, textarea, a {
+    min-height: 44px;
+    min-width: 44px;
   }
 }

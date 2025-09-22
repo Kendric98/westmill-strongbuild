@@ -36,12 +36,16 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-scale-in">
-            <Button className="btn-primary text-lg px-8 py-4">
+            <Button asChild className="btn-primary text-lg px-8 py-4">
+              <a href="/products">
               View Products
               <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
             </Button>
-            <Button className="btn-outline text-lg px-8 py-4">
+            <Button asChild className="btn-outline text-lg px-8 py-4">
+              <a href="/#contact">
               Get Quote Today
+              </a>
             </Button>
           </div>
 
@@ -80,17 +84,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Floating CTA */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <Button
-          variant="outline"
-          size="sm"
-          className="bg-white/20 border-white/30 text-white hover:bg-white/30"
-        >
-          Explore Our Products
-          <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
-      </div>
+      
     </section>
   );
 };

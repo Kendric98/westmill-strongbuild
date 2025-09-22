@@ -95,9 +95,9 @@ const WhyChooseUs = () => {
             Let's discuss how we can bring your vision to life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-primary">
-              Get Free Consultation
-            </button>
+            <a href="/#contact" className="btn-primary">
+              Get Free Quote
+            </a>
             <button className="btn-outline border-white text-white hover:bg-white hover:text-steel-gray">
               View Case Studies
             </button>
