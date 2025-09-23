@@ -55,13 +55,18 @@ const Contact = () => {
             and competitive quote on all precast concrete products.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in">
-            <Button className="btn-primary">
-              <Phone className="mr-2 h-5 w-5" />
-              Call Now: +254 700 123 456
+            <Button
+              className="btn-primary"
+              asChild
+            >
+              <a href="tel:+254793569990">
+                <Phone className="mr-2 h-5 w-5" />
+                Call Now: +254 793 569 990
+              </a>
             </Button>
             <Button 
               className="bg-green-600 hover:bg-green-700 text-white"
-              onClick={() => window.open('https://wa.me/254700123456', '_blank')}
+              onClick={() => window.open('https://wa.me/+254793569990', '_blank')}
             >
               <MessageCircle className="mr-2 h-5 w-5" />
               WhatsApp Us
@@ -201,8 +206,8 @@ const Contact = () => {
                       <div>
                         <h4 className="font-semibold text-steel-gray mb-2">Call Us Direct</h4>
                         <p className="text-muted-foreground mb-2">Get instant answers to your questions</p>
+                        <p className="text-construction-yellow font-medium">+254 793 569 990</p>
                         <p className="text-construction-yellow font-medium">+254 700 123 456</p>
-                        <p className="text-construction-yellow font-medium">+254 722 789 012</p>
                         <p className="text-sm text-muted-foreground mt-2">Available Mon-Sat, 8AM-6PM</p>
                       </div>
                     </div>
@@ -235,8 +240,8 @@ const Contact = () => {
                       <div>
                         <h4 className="font-semibold text-steel-gray mb-2">Visit Our Factory</h4>
                         <p className="text-muted-foreground mb-2">See our products and processes firsthand</p>
-                        <p className="text-steel-gray">Industrial Area, Nairobi County</p>
-                        <p className="text-steel-gray">P.O. Box 12345-00100, Nairobi</p>
+                        <p className="text-steel-gray">Thika Road, Opposite Mang'u High School</p>
+                        <p className="text-steel-gray">P.O. Box -00100, Thika</p>
                         <div className="flex items-center mt-2 text-sm text-muted-foreground">
                           <Clock className="h-4 w-4 mr-1" />
                           Monday - Saturday: 8:00 AM - 6:00 PM
@@ -274,7 +279,7 @@ const Contact = () => {
                   </p>
                   <Button 
                     className="bg-green-600 hover:bg-green-700 text-white"
-                    onClick={() => window.open('https://wa.me/254700123456?text=Hello, I need a quote for precast concrete products', '_blank')}
+                    onClick={() => window.open('https://wa.me/+254793569990?text=Hello, I need a quote for precast concrete products', '_blank')}
                   >
                     Chat on WhatsApp
                     <ArrowRight className="ml-2 h-4 w-4" />
