@@ -1,0 +1,28 @@
+# Enable clean SPA routing for Vite build on Apache (cPanel)
+
+<IfModule mod_negotiation.c>
+  Options -MultiViews
+  # Avoid content negotiation interfering with routes
+</IfModule>
+
+<IfModule mod_dir.c>
+  DirectoryIndex index.html
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Serve files and directories as-is
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Otherwise, route everything to index.html (Vite SPA)
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Helpful MIME types (usually already set by server)
+AddType application/javascript js mjs
+AddType text/css css
+
