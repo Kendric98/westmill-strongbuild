@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Routes, Route } from "react-router-dom";
 
 const services = [
   {
@@ -64,11 +63,3 @@ const Services = () => (
 );
 
 export default Services;
-
-// Example for React Router v6
-import { Routes, Route } from "react-router-dom";
-
-<Routes>
-  {/* ...other routes... */}
-  <Route path="/services" element={<Services />} />
-</Routes>

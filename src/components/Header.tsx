@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -40,7 +42,7 @@ const Header = () => {
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
             <div className="flex items-center space-x-3">
-              <a href="/">
+              <a href="/" className="hover-scale transition-transform duration-200">
                 <img
                   src="/westmill.svg"
                   alt="West Mill Concrete Logo"
@@ -52,30 +54,48 @@ const Header = () => {
               </a>
             </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
-              {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-steel-gray hover:text-construction-yellow font-medium transition-[var(--transition-smooth)]"
-                >
-                  {item.name}
-                </a>
-              ))}
+            {/* Desktop Navigation - Centered */}
+            <nav className="hidden lg:flex items-center justify-center flex-1">
+              <div className="flex items-center space-x-8">
+                {navigation.map((item) => {
+                  const isActive = location.pathname === item.href || 
+                    (item.href === "/" && location.pathname === "/");
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className={`
+                        relative font-medium transition-all duration-300 ease-in-out
+                        px-3 py-2 rounded-lg
+                        ${isActive 
+                          ? 'text-construction-yellow bg-construction-yellow/10 shadow-sm' 
+                          : 'text-steel-gray hover:text-construction-yellow hover:bg-construction-yellow/5'
+                        }
+                        after:content-[''] after:absolute after:bottom-0 after:left-1/2 
+                        after:w-0 after:h-0.5 after:bg-construction-yellow 
+                        after:transition-all after:duration-300 after:transform after:-translate-x-1/2
+                        ${isActive ? 'after:w-4/5' : 'hover:after:w-4/5'}
+                      `}
+                    >
+                      {item.name}
+                    </a>
+                  );
+                })}
+              </div>
             </nav>
 
             {/* CTA Button & Mobile Menu */}
             <div className="flex items-center space-x-4">
-                <a href="#contact">
-                <Button className="btn-primary hidden md:inline-flex">
+              <a href="/contact" className="hidden md:block">
+                <Button className="btn-primary hover-scale transition-all duration-200">
                   Get Quote
                 </Button>
-                </a>
+              </a>
               
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden p-2 text-steel-gray hover:text-construction-yellow"
+                className="lg:hidden p-2 text-steel-gray hover:text-construction-yellow 
+                          transition-all duration-200 hover:bg-construction-yellow/10 rounded-lg"
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -106,19 +126,31 @@ const Header = () => {
                 </button>
               </div>
               <nav className="flex flex-col space-y-6">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-lg text-steel-gray hover:text-construction-yellow font-semibold py-2 transition-[var(--transition-smooth)]"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                ))}
-                <Button className="btn-primary mt-6 w-full py-4 text-lg">
-                  Get Quote
-                </Button>
+                {navigation.map((item) => {
+                  const isActive = location.pathname === item.href || 
+                    (item.href === "/" && location.pathname === "/");
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className={`
+                        text-lg font-semibold py-3 px-4 rounded-lg transition-all duration-300
+                        ${isActive 
+                          ? 'text-construction-yellow bg-construction-yellow/10 border-l-4 border-construction-yellow' 
+                          : 'text-steel-gray hover:text-construction-yellow hover:bg-construction-yellow/5 hover:pl-6'
+                        }
+                      `}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </a>
+                  );
+                })}
+                <a href="/contact" onClick={() => setIsMenuOpen(false)}>
+                  <Button className="btn-primary mt-6 w-full py-4 text-lg hover-scale">
+                    Get Quote
+                  </Button>
+                </a>
               </nav>
             </div>
           )}
