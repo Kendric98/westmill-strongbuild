@@ -36,32 +36,32 @@ const About = () => {
 
   const milestones = [
     {
-      year: "2008",
+      year: "2017",
       title: "Company Founded",
       description: "West Mill Concrete established with a vision to revolutionize Kenya's precast industry."
     },
     {
-      year: "2012", 
+      year: "2018", 
       title: "First Major Project",
       description: "Completed our first large-scale infrastructure project, setting the standard for quality."
     },
     {
-      year: "2015",
+      year: "2020",
       title: "KEBS Certification",
       description: "Achieved Kenya Bureau of Standards certification, validating our quality management systems."
     },
     {
-      year: "2018",
+      year: "2021",
       title: "Facility Expansion",
       description: "Doubled our production capacity with state-of-the-art manufacturing equipment."
     },
     {
-      year: "2020",
+      year: "2022",
       title: "Sustainability Initiative",
       description: "Launched eco-friendly production processes and waste reduction programs."
     },
     {
-      year: "2024",
+      year: "2023",
       title: "Market Leadership",
       description: "Recognized as Kenya's leading precast concrete manufacturer with 500+ completed projects."
     }

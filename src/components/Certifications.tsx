@@ -19,7 +19,7 @@ const Certifications = () => {
       icon: CheckCircle,
       title: "Safety Standards",
       description: "Compliant with occupational health and safety regulations",
-      standard: "OSHA Compliant"
+      standard: "Safety Compliant"
     },
     {
       icon: FileCheck,
@@ -120,11 +120,11 @@ const Certifications = () => {
               <div className="text-steel-gray font-medium">Years of Excellence</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-construction-yellow mb-2">1000+</div>
+              <div className="text-3xl font-bold text-construction-yellow mb-2">100+</div>
               <div className="text-steel-gray font-medium">Projects Completed</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-construction-yellow mb-2">99.8%</div>
+              <div className="text-3xl font-bold text-construction-yellow mb-2">99%</div>
               <div className="text-steel-gray font-medium">Quality Pass Rate</div>
             </div>
           </div>
