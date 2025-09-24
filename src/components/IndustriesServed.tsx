@@ -140,10 +140,14 @@ const IndustriesServed = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="btn-primary">
-              Discuss Your Project
+              <a href="/contact">
+              Discuss Your Project with Us
+             </a>
             </button>
             <button className="btn-outline">
+              <a href="#">
               View Case Studies
+              </a>
             </button>
           </div>
         </div>

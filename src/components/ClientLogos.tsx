@@ -130,10 +130,14 @@ const ClientLogos = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="btn-primary">
-              Start Your Partnership
+              <a href="/contact">
+              Start Your Partnership Now
+              </a>
             </button>
             <button className="btn-outline">
+              <a href="#">
               View Success Stories
+              </a>
             </button>
           </div>
         </div>

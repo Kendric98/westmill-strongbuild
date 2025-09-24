@@ -4,7 +4,7 @@
 
 // --- Config ---
 $PRIMARY_RECIPIENTS = [
-  'ken.westmill@gmail.com' // update to your Gmail address
+  'westmillconcrete@gmail.com' // update to your Gmail address
 ];
 $FROM_ADDRESS = 'no-reply@' . ($_SERVER['SERVER_NAME'] ?? 'localhost');
 $DATA_DIR = __DIR__ . '/data';

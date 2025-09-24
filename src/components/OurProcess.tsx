@@ -90,10 +90,14 @@ const OurProcess = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="btn-primary">
-              Start Your Project
+              <a href="/contact">
+              Start Your Project with us Today
+              </a>
             </button>
             <button className="btn-outline">
+              <a href="/about">
               Learn More About Our Process
+              </a>
             </button>
           </div>
         </div>

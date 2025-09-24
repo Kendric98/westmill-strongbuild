@@ -1,9 +1,33 @@
 import { ArrowRight, Shield, Clock, Award } from "lucide-react";
+import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import heroImage from "@/assets/hero-industrial.jpg";
-import floatingImage from "@/assets/floating-concrete.png"; // Add your floating image to assets
+import imgPavers from "@/assets/pavers.jpg";
+import imgCulverts from "@/assets/culverts.jpg";
+import imgSlabs from "@/assets/slabs.jpg";
+import imgWallPanels from "@/assets/wall-panels.jpg";
+import imgPavers1 from "@/assets/pavers1.jpg";
+import imgCulverts1 from "@/assets/culverts1.jpg";
+import imgWallPanels1 from "@/assets/wall-panels1.jpg";
+
+const images = [
+  imgPavers,
+  imgCulverts,
+  imgSlabs,
+  imgWallPanels,
+  imgPavers1,
+  imgCulverts1,
+  imgWallPanels1,
+];
 
 const Hero = () => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const plugins = useMemo(() => [
+    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: false })
+  ], []);
+
   return (
     <section className="relative min-h-[100vh] sm:min-h-[90vh] flex items-center hero-gradient overflow-hidden">
       {/* Background Image */}
@@ -85,20 +109,63 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Floating Image on the Right - Hidden on mobile */}
+        {/* Right-side Carousel - Hidden on mobile */}
         <div className="hidden lg:block flex-1 relative">
-          {/* Glowing shadow behind the image */}
           <div
-            className="absolute right-8 top-1/2 -translate-y-1/2 w-[300px] h-[300px] xl:w-[400px] xl:h-[400px] rounded-full bg-gradient-to-br from-yellow-400 via-[#f66202] to-yellow-500 blur-3xl opacity-60 z-10"
+            className="absolute right-8 top-1/2 -translate-y-1/2 w-[320px] h-[320px] xl:w-[460px] xl:h-[460px] rounded-full bg-gradient-to-br from-yellow-400 via-[#f66202] to-yellow-500 blur-3xl opacity-60 z-10"
             aria-hidden="true"
           />
-          <img
-            src={floatingImage}
-            alt="Floating Concrete Product"
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] xl:w-[500px] max-w-md drop-shadow-xl floating-image rounded-3xl z-20"
-            style={{ zIndex: 20 }}
-            loading="lazy"
-          />
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-[420px] xl:w-[520px]">
+            <div className="[perspective:1200px]">
+              <Carousel
+                className="w-full"
+                opts={{ loop: true, align: "start", duration: 20 }}
+                plugins={plugins}
+                setApi={(api) => {
+                  if (!api) return;
+                  setSelectedIndex(api.selectedScrollSnap());
+                  api.on('select', () => setSelectedIndex(api.selectedScrollSnap()));
+                }}
+              >
+                <CarouselContent className="rounded-3xl shadow-[var(--shadow-industrial)]">
+                  {images.map((src, idx) => {
+                    const total = images.length;
+                    let offset = (idx - selectedIndex) % total;
+                    if (offset < 0) offset += total;
+                    const depthMap = {
+                      0: { z: 120, r: 0, s: 1, o: 1 },
+                      1: { z: 40, r: -12, s: 0.92, o: 0.9 },
+                      [total - 1]: { z: 40, r: 12, s: 0.92, o: 0.9 },
+                    } as Record<number, { z: number; r: number; s: number; o: number }>;
+                    const fallback = { z: -80, r: (idx % 2 ? -8 : 8), s: 0.85, o: 0.6 };
+                    const d = depthMap[offset] ?? fallback;
+                    return (
+                      <CarouselItem key={idx} className="basis-full">
+                        <div className="p-2">
+                          <div
+                            className="relative overflow-hidden rounded-3xl will-change-transform"
+                            style={{
+                              transform: `translateZ(${d.z}px) rotateY(${d.r}deg) scale(${d.s})`,
+                              transformStyle: 'preserve-3d',
+                              transition: 'transform 700ms ease, opacity 700ms ease',
+                              opacity: d.o,
+                            }}
+                          >
+                            <img
+                              src={src}
+                              alt="Showcase"
+                              className="w-full h-[340px] xl:h-[420px] object-cover"
+                              loading="lazy"
+                            />
+                          </div>
+                        </div>
+                      </CarouselItem>
+                    );
+                  })}
+                </CarouselContent>
+              </Carousel>
+            </div>
+          </div>
         </div>
       </div>
     </section>
