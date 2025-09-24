@@ -116,7 +116,7 @@ const Certifications = () => {
         <div className="mt-16 text-center animate-fade-in">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-3xl font-bold text-construction-yellow mb-2">15+</div>
+              <div className="text-3xl font-bold text-construction-yellow mb-2">8+</div>
               <div className="text-steel-gray font-medium">Years of Excellence</div>
             </div>
             <div className="text-center">

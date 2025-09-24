@@ -2,21 +2,31 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const ClientLogos = () => {
   const clients = [
-    { name: "Kenya National Highways Authority", category: "Government" },
-    { name: "Nairobi City County", category: "Government" },
-    { name: "Kenya Urban Roads Authority", category: "Infrastructure" },
-    { name: "Safari Park Hotel", category: "Hospitality" },
-    { name: "Garden City Mall", category: "Commercial" },
-    { name: "Two Rivers Mall", category: "Commercial" },
-    { name: "Tatu City", category: "Real Estate" },
-    { name: "Cytonn Investments", category: "Real Estate" },
-    { name: "Brookside Dairy", category: "Industrial" },
-    { name: "East African Breweries", category: "Industrial" },
-    { name: "University of Nairobi", category: "Education" },
-    { name: "Aga Khan Hospital", category: "Healthcare" }
+    { name: "Constant Motors & Investment Limited", categories: ["Building", "Civil Works"] },
+    { name: "Fahari Residence", categories: ["Civil Works"] },
+    { name: "Madisson Life Insurance", categories: ["Road Works", "Drainage Works"] },
+    { name: "Rehani House", categories: ["Civil Works"] },
+    { name: "Komarock Heights", categories: ["Wall Works", "Paving Works"] },
+    { name: "ACK Nyeri Cathedral", categories: ["Paving Works"] },
+    { name: "Meru County Govenment", categories: ["Civil Works"] },
+    { name: "St. Peters Cravers", categories: ["Paving Works"] },
+    { name: "Nyeri County Government", categories: ["Paving Works"] },
+    { name: "Kiambu County Government", categories: ["Paving Works"] },
+    { name: "Kilimambogo Teachers' College", categories: ["Paving Works"] },
+    { name: "Kibiricha Market", categories: ["Paving Works"] },
+    { name: "Sogea Saton Kenya", categories: ["Paving & Drainage"] },
+    { name: "Giant Millers Limited", categories: ["Paving Works"] },
+    { name: "Mt. Kenya University", categories: ["Paving Works"] },
+    { name: "PCEA Kahawa Sukari", categories: ["Paving Works"] },
+    { name: "Kahawa Barracks", categories: ["Paving Works"] },
+    { name: "Thika Water & Sewerage Company", categories: ["Paving Works"] },
+    { name: "Jubilee Feeds Limited", categories: ["Paving Works"] },
+    { name: "China Railway Seventh Group", categories: ["Paving Works"] },
+    { name: "Strabag International - Thiba Dam", categories: ["Paving Works", "Materials Supply"] },
+    { name: "Albizia Limited", categories: ["Road Works", "Drainage Works"] }
   ];
 
-  const categories = ["Government", "Infrastructure", "Commercial", "Real Estate", "Industrial", "Education", "Hospitality", "Healthcare"];
+  const categories = ["Paving Works", "Civil Works", "Building", "Road Works", "Civil Works", "Drainage Works", "Materials Supply", "Wall Works"];
 
   return (
     <section className="py-20 bg-white">
@@ -91,7 +101,7 @@ const ClientLogos = () => {
           <Card className="industrial-card text-center">
             <CardContent className="p-8">
               <div className="w-16 h-16 accent-gradient rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-white">24h</span>
+                <span className="text-2xl font-bold text-white">1h</span>
               </div>
               <h4 className="font-semibold text-steel-gray mb-3">Quick Response</h4>
               <p className="text-muted-foreground text-sm">
@@ -103,7 +113,7 @@ const ClientLogos = () => {
           <Card className="industrial-card text-center">
             <CardContent className="p-8">
               <div className="w-16 h-16 accent-gradient rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-white">15+</span>
+                <span className="text-2xl font-bold text-white">8+</span>
               </div>
               <h4 className="font-semibold text-steel-gray mb-3">Years Experience</h4>
               <p className="text-muted-foreground text-sm">

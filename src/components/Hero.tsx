@@ -78,7 +78,7 @@ const Hero = () => {
                 <Award className="h-5 w-5 sm:h-6 sm:w-6 text-construction-yellow" />
               </div>
               <div>
-                <h3 className="font-semibold text-sm sm:text-base">10+ Years</h3>
+                <h3 className="font-semibold text-sm sm:text-base">8+ Years</h3>
                 <p className="text-gray-300 text-xs sm:text-sm">Industry Experience</p>
               </div>
             </div>

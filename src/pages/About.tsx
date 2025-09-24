@@ -68,10 +68,10 @@ const About = () => {
   ];
 
   const certifications = [
-    { name: "KEBS Quality Certification", standard: "KS ISO 9001:2015" },
-    { name: "Construction Industry Standards", standard: "KS EAS 18-1:2017" },
-    { name: "Environmental Management", standard: "KS ISO 14001:2015" },
-    { name: "Occupational Health & Safety", standard: "KS OHSAS 18001:2007" }
+    { name: "KEBS Quality Certification", standard: "" },
+    { name: "Construction Industry Standards", standard: "" },
+    { name: "Environmental Management", standard: "" },
+    { name: "Occupational Health & Safety", standard: "" }
   ];
 
   const whyChooseUs = [
@@ -149,11 +149,11 @@ const About = () => {
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-construction-yellow">500+</div>
+                  <div className="text-3xl font-bold text-construction-yellow">100+</div>
                   <div className="text-sm text-muted-foreground">Projects Completed</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-construction-yellow">15+</div>
+                  <div className="text-3xl font-bold text-construction-yellow">8+</div>
                   <div className="text-sm text-muted-foreground">Years Experience</div>
                 </div>
               </div>

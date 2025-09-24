@@ -15,7 +15,8 @@ const Contact = () => {
     email: "",
     phone: "",
     product: "",
-    message: ""
+    message: "",
+    website: "" // honeypot
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -23,17 +24,29 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Quote Request Sent!",
-      description: "We'll respond within 24 hours with your custom quote.",
-    });
-    
-    setFormData({ name: "", email: "", phone: "", product: "", message: "" });
-    setIsSubmitting(false);
+    try {
+      const resp = await fetch('/lead.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await resp.json().catch(() => ({ ok: false }));
+      if (!resp.ok || !data.ok) {
+        throw new Error('Submission failed');
+      }
+      toast({
+        title: "Quote Request Sent!",
+        description: "We have received your details and will reply within 24 hours.",
+      });
+      setFormData({ name: "", email: "", phone: "", product: "", message: "" });
+    } catch (err) {
+      toast({
+        title: "Submission failed",
+        description: "Please try again or contact us directly via phone or email.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (field: string, value: string) => {
