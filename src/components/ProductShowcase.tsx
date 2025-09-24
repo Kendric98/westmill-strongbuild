@@ -43,101 +43,97 @@ const ProductShowcase = () => {
   ];
 
   return (
-    <section id="products" className="py-20 concrete-texture">
-      <div className="container mx-auto px-4">
+    <section id="products" className="py-12 sm:py-16 lg:py-20 concrete-texture">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="font-display text-steel-gray mb-4">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16 animate-fade-in">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-steel-gray mb-3 sm:mb-4">
             Our <span className="text-construction-yellow">Product Range</span>
           </h2>
-          <div className="w-24 h-1 accent-gradient rounded-full mx-auto mb-6"></div>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <div className="w-16 sm:w-20 lg:w-24 h-1 accent-gradient rounded-full mx-auto mb-4 sm:mb-6"></div>
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             From foundation to finish, we manufacture premium precast concrete products 
             that meet the highest industry standards.
           </p>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12 lg:mb-16">
           {products.map((product, index) => (
             <Card 
               key={product.id} 
-              className="industrial-card overflow-hidden group animate-scale-in"
+              className="industrial-card overflow-hidden group animate-scale-in hover-scale"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-white text-sm font-medium">{product.applications}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-white text-xs sm:text-sm font-medium">{product.applications}</p>
                 </div>
               </div>
               
-              <CardContent className="p-6">
-                <h3 className="font-heading text-steel-gray mb-3">{product.title}</h3>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+              <CardContent className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-bold text-steel-gray mb-2 sm:mb-3">{product.title}</h3>
+                <p className="text-muted-foreground mb-3 sm:mb-4 text-sm leading-relaxed">
                   {product.description}
                 </p>
                 
-                <div className="space-y-2 mb-6">
+                <div className="space-y-1.5 sm:space-y-2">
                   {product.features.map((feature) => (
-                    <div key={feature} className="flex items-center space-x-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-construction-yellow flex-shrink-0" />
+                    <div key={feature} className="flex items-center space-x-2 text-xs sm:text-sm">
+                      <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-construction-yellow flex-shrink-0" />
                       <span className="text-steel-gray">{feature}</span>
                     </div>
                   ))}
                 </div>
-
-                
               </CardContent>
             </Card>
           ))}
         </div>
 
         {/* Additional Products Preview */}
-        <div className="bg-white rounded-2xl shadow-[var(--shadow-industrial)] p-8 animate-fade-in">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="font-heading text-steel-gray mb-4">
+        <div className="bg-white rounded-xl sm:rounded-2xl shadow-[var(--shadow-industrial)] p-6 sm:p-8 animate-fade-in">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+            <div className="text-center lg:text-left">
+              <h3 className="text-xl sm:text-2xl font-bold text-steel-gray mb-3 sm:mb-4">
                 More Quality Products
               </h3>
-              <p className="text-muted-foreground mb-6">
+              <p className="text-muted-foreground mb-4 sm:mb-6 text-sm sm:text-base">
                 We also manufacture kerb stones, concrete benches, drainage blocks, 
                 and provide professional installation services for all our products.
               </p>
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-construction-yellow" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-sm">
+                <div className="flex items-center space-x-2 justify-center lg:justify-start">
+                  <CheckCircle className="h-4 w-4 text-construction-yellow flex-shrink-0" />
                   <span>Kerb Stones</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-construction-yellow" />
+                <div className="flex items-center space-x-2 justify-center lg:justify-start">
+                  <CheckCircle className="h-4 w-4 text-construction-yellow flex-shrink-0" />
                   <span>Concrete Benches</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-construction-yellow" />
+                <div className="flex items-center space-x-2 justify-center lg:justify-start">
+                  <CheckCircle className="h-4 w-4 text-construction-yellow flex-shrink-0" />
                   <span>Drainage Blocks</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-construction-yellow" />
+                <div className="flex items-center space-x-2 justify-center lg:justify-start">
+                  <CheckCircle className="h-4 w-4 text-construction-yellow flex-shrink-0" />
                   <span>Installation Services</span>
                 </div>
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-                <div className="flex-1 flex justify-end items-center">
-                  <Button asChild className="btn-primary">
-                    <a href="/products">
-                      View All Products
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </a>
-                  </Button>
-                </div>
-              
+            <div className="flex justify-center lg:justify-end">
+              <Button asChild className="btn-primary w-full sm:w-auto">
+                <a href="/products">
+                  View All Products
+                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                </a>
+              </Button>
             </div>
           </div>
         </div>

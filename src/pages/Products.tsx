@@ -174,21 +174,21 @@ const Products = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="hero-gradient text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="font-display text-white mb-6 animate-fade-in">
+      <section className="hero-gradient text-white py-12 sm:py-16 lg:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-white mb-4 sm:mb-6 animate-fade-in">
             Complete Range of <span className="text-construction-yellow">Precast Products</span>
           </h1>
-          <p className="text-xl max-w-3xl mx-auto mb-8 opacity-90 animate-slide-up">
+          <p className="text-base sm:text-lg lg:text-xl max-w-3xl mx-auto mb-6 sm:mb-8 opacity-90 animate-slide-up">
             From foundation to finish, we manufacture premium precast concrete products 
             that meet the highest industry standards for construction, infrastructure, and architectural projects.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in">
-            <Button className="btn-primary">
-              <Download className="mr-2 h-5 w-5" />
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center animate-scale-in">
+            <Button className="btn-primary w-full sm:w-auto">
+              <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Download Full Catalog
             </Button>
-            <Button className="btn-outline">
+            <Button className="btn-outline w-full sm:w-auto">
               Request Custom Quote
             </Button>
           </div>
@@ -196,30 +196,30 @@ const Products = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="py-20 concrete-texture">
-        <div className="container mx-auto px-4">
+      <section className="py-12 sm:py-16 lg:py-20 concrete-texture">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Category Filter */}
-          <div className="mb-12 text-center">
-            <h2 className="font-display text-steel-gray mb-8">Explore Our Product Categories</h2>
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
+          <div className="mb-8 sm:mb-12 text-center">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-steel-gray mb-6 sm:mb-8">Explore Our Product Categories</h2>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8 px-2">
               {categories.map((category) => (
                 <Button
                   key={category}
                   variant={category === selectedCategory ? "default" : "outline"}
-                  className="rounded-full hover:scale-105 transition-transform"
+                  className="rounded-full hover:scale-105 transition-transform text-xs sm:text-sm px-3 py-2 sm:px-4"
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category}
                 </Button>
               ))}
             </div>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
               Showing {filteredProducts.length} {selectedCategory === "All Products" ? "products" : `${selectedCategory.toLowerCase()} products`}
             </p>
           </div>
 
           {/* Products Grid with Expandable Views */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredProducts.map((product, index) => (
               <Card 
                 key={product.id} 
@@ -230,16 +230,17 @@ const Products = () => {
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-40 sm:h-48 lg:h-56 object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-construction-yellow text-charcoal px-3 py-1 rounded-full text-xs font-semibold">
+                  <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
+                    <span className="bg-construction-yellow text-charcoal px-2 py-1 sm:px-3 rounded-full text-xs font-semibold">
                       {product.category}
                     </span>
                   </div>
                   {product.id === "pavers" && (
-                    <div className="absolute top-4 right-4">
+                    <div className="absolute top-2 sm:top-4 right-2 sm:right-4">
                       <span className="bg-bold-orange text-white px-2 py-1 rounded-full text-xs font-semibold">
                         Featured
                       </span>
@@ -247,10 +248,10 @@ const Products = () => {
                   )}
                 </div>
                 
-                <CardContent className="p-6">
-                  <h3 className="font-heading text-steel-gray mb-2">{product.title}</h3>
-                  <p className="text-construction-yellow font-medium text-sm mb-3">{product.subtitle}</p>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                <CardContent className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-steel-gray mb-2">{product.title}</h3>
+                  <p className="text-construction-yellow font-medium text-sm mb-2 sm:mb-3">{product.subtitle}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-3 sm:mb-4">
                     {product.description}
                   </p>
                   
