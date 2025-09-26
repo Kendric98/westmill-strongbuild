@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/hero-industrial.jpg";
+import SEO from "@/components/SEO";
 
 const About = () => {
   const values = [
@@ -109,6 +110,18 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="About Westmill Concrete | Leading Precast Manufacturer in Kenya"
+        description="Westmill Concrete is a trusted manufacturer of high-quality precast concrete products in Kenya. We combine innovation, durability, and affordability to support infrastructure development."
+        canonicalUrl="https://www.westmillconcrete.co.ke/about"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About Westmill Concrete",
+          url: "https://westmillconcrete.co.ke/about",
+          publisher: { "@type": "Organization", name: "Westmill Concrete" },
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

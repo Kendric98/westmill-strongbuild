@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import SEO from "@/components/SEO";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -55,6 +56,24 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Contact Us | Westmill Concrete | Kenya’s Precast Experts"
+        description="Get in touch with Westmill Concrete for precast products, installation, and contractor services in Kenya. Call +254700123456 or visit us at Thika."
+        canonicalUrl="https://www.westmillconcrete.co.ke/contact"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact Westmill Concrete",
+          url: "https://westmillconcrete.co.ke/contact",
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+254700123456",
+            contactType: "Sales",
+            areaServed: "KE",
+            availableLanguage: ["English", "Swahili"],
+          },
+        }}
+      />
       <Header />
       
       {/* Hero Section */}

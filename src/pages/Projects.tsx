@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 // Example images for each project type (replace with your actual image paths)
 const projectImages: Record<string, string> = {
@@ -240,6 +241,18 @@ const groupedProjects = [
 
 const Projects = () => (
   <div className="min-h-screen bg-background">
+    <SEO
+      title="Projects | Westmill Concrete | Kenya’s Trusted Precast Solutions"
+      description="View our completed projects across Kenya. From roads, drainage, and housing to industrial construction—Westmill Concrete delivers reliable precast solutions."
+      canonicalUrl="https://www.westmillconcrete.co.ke/projects"
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Westmill Concrete Projects",
+        url: "https://westmillconcrete.co.ke/projects",
+        about: "Showcase of Westmill Concrete's precast concrete projects in Kenya.",
+      }}
+    />
     <Header />
     <section className="py-16 bg-gradient-to-br from-[#f66202] to-yellow-400 text-white">
       <div className="container mx-auto px-4 text-center">

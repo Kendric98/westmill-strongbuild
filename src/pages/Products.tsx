@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "@/components/SEO";
 import { ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -171,6 +172,18 @@ const Products = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Precast Products | Pavers, Culverts, Slabs & More | Westmill Concrete"
+        description="Explore our wide range of precast products: pavers, culverts, slabs, kerb stones, colored pavers, fencing posts, wall panels, hollow blocks, and more. Quality guaranteed."
+        canonicalUrl="https://www.westmillconcrete.co.ke/products"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ProductCollection",
+          name: "Precast Concrete Products",
+          url: "https://westmillconcrete.co.ke/products",
+          brand: { "@type": "Organization", name: "Westmill Concrete" },
+        }}
+      />
       <Header />
       
       {/* Hero Section */}
