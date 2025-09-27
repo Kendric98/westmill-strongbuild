@@ -82,7 +82,7 @@ const Hero = () => {
                 <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-construction-yellow" />
               </div>
               <div>
-                <h3 className="font-semibold text-sm sm:text-base">KEBS Certified</h3>
+                <h3 className="font-semibold text-sm sm:text-base">NCA Certified</h3>
                 <p className="text-gray-300 text-xs sm:text-sm">Quality Guaranteed</p>
               </div>
             </div>
