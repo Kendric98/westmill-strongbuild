@@ -121,7 +121,7 @@ const ContactCTA = () => {
                       <h4 className="font-semibold text-steel-gray mb-2">Call Us</h4>
                       <p className="text-muted-foreground mb-2">Get instant answers to your questions</p>
                       <p className="text-construction-yellow font-medium">+254 700 123 456</p>
-                      <p className="text-construction-yellow font-medium">+254 722 789 012</p>
+                      {/*<p className="text-construction-yellow font-medium">+254 722 789 012</p>*/}
                     </div>
                   </div>
                 </CardContent>

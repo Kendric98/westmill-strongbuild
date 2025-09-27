@@ -67,7 +67,7 @@ const Contact = () => {
           url: "https://westmillconcrete.co.ke/contact",
           contactPoint: {
             "@type": "ContactPoint",
-            telephone: "+254700123456",
+            telephone: "+254793569990",
             contactType: "Sales",
             areaServed: "KE",
             availableLanguage: ["English", "Swahili"],
@@ -239,7 +239,7 @@ const Contact = () => {
                         <h4 className="font-semibold text-steel-gray mb-1 sm:mb-2 text-sm sm:text-base">Call Us Direct</h4>
                         <p className="text-muted-foreground mb-2 text-xs sm:text-sm">Get instant answers to your questions</p>
                         <p className="text-construction-yellow font-medium text-sm sm:text-base">+254 793 569 990</p>
-                        <p className="text-construction-yellow font-medium text-sm sm:text-base">+254 700 123 456</p>
+                        {/*<p className="text-construction-yellow font-medium text-sm sm:text-base">+254 700 123 456</p>*/}
                         <p className="text-xs text-muted-foreground mt-1 sm:mt-2">Available Mon-Sat, 8AM-6PM</p>
                       </div>
                     </div>
@@ -293,9 +293,15 @@ const Contact = () => {
                       <MapPin className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 text-construction-yellow mx-auto mb-2 sm:mb-4" />
                       <h4 className="font-semibold text-steel-gray mb-1 sm:mb-2 text-sm sm:text-base">Interactive Map</h4>
                       <p className="text-muted-foreground text-xs sm:text-sm mb-2 sm:mb-3">Google Maps integration</p>
-                      <Button variant="outline" className="text-xs sm:text-sm px-3 py-2 sm:px-4 sm:py-2">
-                        View on Google Maps
-                      </Button>
+                      <a
+                        href="https://maps.app.goo.gl/4ZnU8CqkZ4TQukKZA"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button variant="outline" className="text-xs sm:text-sm px-3 py-2 sm:px-4 sm:py-2">
+                          View on Google Maps
+                        </Button>
+                      </a>
                     </div>
                   </div>
                 </CardContent>

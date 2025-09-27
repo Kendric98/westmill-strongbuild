@@ -55,32 +55,32 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/services/custom-manufacturing" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
+                  <a href="/services" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
                     Custom Manufacturing
                   </a>
                 </li>
                 <li>
-                  <a href="/services/installation" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
+                  <a href="/services" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
                     Installation Services
                   </a>
                 </li>
                 <li>
-                  <a href="/services/consultation" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
+                  <a href="/services" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
                     Project Consultation
                   </a>
                 </li>
                 <li>
-                  <a href="/services/technical-support" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
+                  <a href="/services" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
                     Technical Support
                   </a>
                 </li>
                 <li>
-                  <a href="/services/delivery" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
+                  <a href="/services" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
                     Nationwide Delivery
                   </a>
                 </li>
                 <li>
-                  <a href="/services/quality-assurance" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
+                  <a href="/services" className="hover:text-construction-yellow transition-[var(--transition-smooth)]">
                     Quality Assurance
                   </a>
                 </li>
@@ -102,7 +102,7 @@ const Footer = () => {
                 <Phone className="h-5 w-5 text-construction-yellow flex-shrink-0" />
                 <div>
                   <p className="text-gray-300">+254 793 569 990</p>
-                  <p className="text-gray-300">+254 700 123 456</p>
+                  {/*<p className="text-gray-300">+254 700 123 456</p> Contact Info */}
                 </div>
               </div>
               <div className="flex items-center space-x-3">

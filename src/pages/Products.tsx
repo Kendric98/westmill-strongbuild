@@ -5,10 +5,24 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import paversImage from "@/assets/pavers.jpg";
+import paversImage from "@/assets/pavers2.jpg";
 import culvertsImage from "@/assets/culverts.jpg";
-import slabsImage from "@/assets/slabs.jpg";
+import socketculvertsImage from "@/assets/culverts.jpg";
+import slabsImage from "@/assets/slab.jpg";
 import wallPanelsImage from "@/assets/wall-panels.jpg";
+import kerbStonesImage from "@/assets/kerb-stones.jpg";
+import concreteBenchesImage from "@/assets/concrete-benches.jpg";
+import drainageBlocksImage from "@/assets/drainage-blocks.jpg";
+import installationServicesImage from "@/assets/installation-services.jpg";
+import fencingPostsImage from "@/assets/fencing-posts.jpg";
+import powerlineBlocksImage from "@/assets/powerline-blocks.jpg";
+import ventilationBlocksImage from "@/assets/ventilation-blocks.jpg";
+import concreteWafflesImage from "@/assets/concrete-waffles.jpg";
+import hollowBlocksImage from "@/assets/hollow-blocks.jpg";
+import wallCopingsImage from "@/assets/wall-copings.jpg";
+import cobbleStonesImage from "@/assets/cobble-stones.jpg";
+import precastEssentialsImage from "@/assets/precast-essentials.jpg";
+import roadChannelsImage from "@/assets/road-channels.jpg";
 
 const Products = () => {
   const products = [
@@ -29,6 +43,14 @@ const Products = () => {
       category: "Infrastructure"
     },
     {
+      id: "socketculverts",
+      title: "Socket Culverts",
+      subtitle: "Heavy-duty Infrastructure",
+      description: "Heavy-duty Socket culverts for water management and infrastructure projects.",
+      image: socketculvertsImage,
+      category: "Infrastructure"
+    },
+    {
       id: "slabs",
       title: "Precast Slabs",
       subtitle: "Structural Elements",
@@ -46,10 +68,18 @@ const Products = () => {
     },
     {
       id: "kerb-stones",
-      title: "Kerb Stones",
+      title: "Road Kerbs",
       subtitle: "Road Infrastructure",
       description: "Precision-cast kerb stones for roadways, parking lots, and urban development.",
-      image: paversImage,
+      image: kerbStonesImage,
+      category: "Infrastructure"
+    },
+    {
+      id: "road-channels",
+      title: "Road Channels",
+      subtitle: "Drainage Infrastructure",
+      description: "Precast concrete channels for efficient road drainage and water management systems.",
+      image: roadChannelsImage,
       category: "Infrastructure"
     },
     {
@@ -57,7 +87,7 @@ const Products = () => {
       title: "Concrete Benches",
       subtitle: "Urban Furniture",
       description: "Durable outdoor seating solutions for parks, schools, and public spaces.",
-      image: slabsImage,
+      image: concreteBenchesImage,
       category: "Urban Furniture"
     },
     {
@@ -65,7 +95,7 @@ const Products = () => {
       title: "Drainage Blocks",
       subtitle: "Water Management",
       description: "Specialized blocks for efficient water drainage and management systems.",
-      image: culvertsImage,
+      image: drainageBlocksImage,
       category: "Infrastructure"
     },
     {
@@ -73,7 +103,7 @@ const Products = () => {
       title: "Installation Services",
       subtitle: "Professional Installation",
       description: "Expert installation and contractor services for all our precast products.",
-      image: wallPanelsImage,
+      image: installationServicesImage,
       category: "Services"
     },
     {
@@ -81,7 +111,7 @@ const Products = () => {
       title: "Fencing Posts",
       subtitle: "Security & Boundaries",
       description: "Strong, weather-resistant concrete posts for fencing and boundary solutions.",
-      image: paversImage,
+      image: fencingPostsImage,
       category: "Security"
     },
     {
@@ -89,7 +119,7 @@ const Products = () => {
       title: "Powerline Blocks",
       subtitle: "Utility Infrastructure",
       description: "Specialized blocks for powerline infrastructure and utility applications.",
-      image: slabsImage,
+      image: powerlineBlocksImage,
       category: "Utilities"
     },
     {
@@ -97,7 +127,7 @@ const Products = () => {
       title: "Ventilation Blocks",
       subtitle: "Building Ventilation",
       description: "Decorative and functional blocks for building ventilation systems.",
-      image: wallPanelsImage,
+      image: ventilationBlocksImage,
       category: "Building Systems"
     },
     {
@@ -105,7 +135,7 @@ const Products = () => {
       title: "Concrete Waffles",
       subtitle: "Decorative Elements",
       description: "Decorative waffle-pattern blocks for architectural and landscaping projects.",
-      image: culvertsImage,
+      image: concreteWafflesImage,
       category: "Decorative"
     },
     {
@@ -113,7 +143,7 @@ const Products = () => {
       title: "Hollow Blocks",
       subtitle: "Construction Blocks",
       description: "Lightweight hollow blocks for efficient construction and insulation.",
-      image: paversImage,
+      image: hollowBlocksImage,
       category: "Construction"
     },
     {
@@ -121,7 +151,7 @@ const Products = () => {
       title: "Wall Copings",
       subtitle: "Wall Protection",
       description: "Protective coping stones for walls, providing weather protection and aesthetics.",
-      image: wallPanelsImage,
+      image: wallCopingsImage,
       category: "Protection"
     },
     {
@@ -129,7 +159,7 @@ const Products = () => {
       title: "Cobble Stones",
       subtitle: "Traditional Paving",
       description: "Classic cobblestone designs for traditional and decorative paving applications.",
-      image: slabsImage,
+      image: cobbleStonesImage,
       category: "Decorative"
     },
     {
@@ -137,7 +167,7 @@ const Products = () => {
       title: "Other Precast Essentials",
       subtitle: "Custom Solutions",
       description: "Custom precast solutions tailored to your specific project requirements.",
-      image: culvertsImage,
+      image: precastEssentialsImage,
       category: "Custom"
     }
   ];

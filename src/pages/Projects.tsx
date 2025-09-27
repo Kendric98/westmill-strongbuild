@@ -2,31 +2,55 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 
-// Example images for each project type (replace with your actual image paths)
+// Individual project images (replace with your actual image paths)
 const projectImages: Record<string, string> = {
-  "FAHARI RESIDENCE": "/images/projects/fahari.jpg",
-  "KOMAROCK": "/images/projects/komarock.jpg",
-  "MADISON LIFE ASSURANCE": "/images/projects/madison.jpg",
-  "REHANI": "/images/projects/rehani.jpg",
-  "KOMAROCK HEIGHTS": "/images/projects/komarock-heights.jpg",
-  "MERU COUNTY": "/images/projects/meru.jpg",
-  "ST PETER'S CRAVERS": "/images/projects/paving.jpg",
-  "NYERI STAGE": "/images/projects/nyeri.jpg",
-  "RUIRU STAGE": "/images/projects/ruiru.jpg",
-  "KILIMAMBOGO TEACHERS COLLEGE": "/images/projects/kilimanbogo.jpg",
-  "UPGRANDING KIBIRICHA MARKET LOOP ROAD": "/images/projects/kibiricha.jpg",
-  "SOGEA SATON KENYA": "/images/projects/sogea.jpg",
-  "GIANT MILLERS LIMITED": "/images/projects/giant-millers.jpg",
-  "MT KENYA UNIVERSITY": "/images/projects/mt-kenya.jpg",
-  "KAHAWA SUKARI PCEA": "/images/projects/kahawa.jpg",
-  "RIFT VALLEY ROLLERS KAHAWA BALLACK": "/images/projects/rift-valley.jpg",
-  "THIKA WATER & SEWERAGE": "/images/projects/thika.jpg",
-  "JUBILEE FEEDS LIMITED": "/images/projects/jubilee.jpg",
-  "CHINA RAILWAY SEVENTH GROUP": "/images/projects/china-railway.jpg",
-  "STRABAG INTERNATIONAL/THIBA DAM": "/images/projects/strabag.jpg",
-  "ALBIZIA LTD": "/images/projects/albizzia.jpg",
-  "ACK CATHEDRAW NYERI": "/images/projects/ack-nyeri.jpg",
-  "CONSTANT MOTORS & INVESTMENT LTD": "/images/projects/constant-motors.jpg",
+  // Fahari Residence Projects
+  "Fahari Grounds- Levelling 3/4 Acre Land": "/projects/fahari2.jpg",
+  "Fahari Phase 2, Civil works": "/projects/project2.jpg",
+  "Fahari Phase 4 & 5 Clearance & Excavation Works": "/projects/leveling.jpg",
+  "Fahari Residence by THETA DAM construction of Access and circulation Roads within Phase 4&5": "/projects/theta1.jpg",
+  "Fahari Wall Phase 3": "/projects/fahariwall.jpg",
+  
+  // Madison Life Assurance Projects
+  "Villa Kazi Homes Development (Parking and Entrance Roadworks)": "/projects/fahariparking.jpg",
+  "Villa Kazi Homes Development (Sewer and Reticulation Phase 1)": "/projects/faharisewer.jpg",
+  
+  // Rehani Projects
+  "Rehani Beautification, Phase 1": "/projects/rehanibeautification.jpg",
+  
+  // Komarock Projects
+  "K-MALL Project, Komarock": "/projects/kmall.jpg",
+  "Komarock Civil Works, Phase 2": "/projects/komarockcivil.jpg",
+  "Komarock Wall Phase 3": "/projects/wallphase3.jpg",
+  
+  // Komarock Heights Projects
+  "Perimeter wall & cabros work at Komarock Height": "/projects/komarockwall.jpg",
+  
+  // Meru County Projects
+  "MACADAMIA PROCESSING PLANT": "/projects/macadamia.jpg",
+  "NTHARENE MARKET 1": "/projects/ntharenemarket.jpg",
+  "NTHARENE MARKET 2": "/projects/ntharenemarket2.jpg",
+  
+  // Constant Motors Projects
+  "CONSTRUCTION OF A COMMERCIAL BUILDING": "/projects/commbuilding.jpg",
+  
+  // Paving Projects - using customer name to differentiate
+  "ST PETER'S CRAVERS": "/projects/cravers.jpg",
+  "NYERI STAGE": "/projects/nyeristage.jpg",
+  "RUIRU STAGE": "/projects/ruirustage.jpg",
+  "KILIMAMBOGO TEACHERS COLLEGE": "/projects/kilimambogottc.jpg",
+  "UPGRANDING KIBIRICHA MARKET LOOP ROAD": "/projects/kibiricha.jpg",
+  "SOGEA SATON KENYA": "/projects/sogea.jpg",
+  "GIANT MILLERS LIMITED": "/projects/giantmillers.jpg",
+  "MT KENYA UNIVERSITY": "/projects/mku.jpg",
+  "KAHAWA SUKARI PCEA": "/projects/pceakahawa.jpg",
+  "RIFT VALLEY ROLLERS KAHAWA BALLACK": "/projects/rift-valley.jpg",
+  "THIKA WATER & SEWERAGE": "/projects/thika.jpg",
+  "JUBILEE FEEDS LIMITED": "/projects/jubileefeeds.jpg",
+  "CHINA RAILWAY SEVENTH GROUP": "/projects/truck1.jpg",
+  "STRABAG INTERNATIONAL/THIBA DAM": "/projects/strabag.jpg",
+  "ALBIZIA LTD": "/projects/albizzia.jpg",
+  "ACK CATHEDRAW NYERI": "/projects/acknyeri.jpg",
 };
 
 const groupedProjects = [
@@ -274,8 +298,8 @@ const Projects = () => (
                   className="bg-concrete-gray rounded-xl shadow-lg p-0 flex flex-col hover:shadow-xl transition-shadow overflow-hidden"
                 >
                   <img
-                    src={projectImages[project.customer] || "/images/projects/default.jpg"}
-                    alt={project.customer}
+                    src={projectImages[project.name] || projectImages[project.customer] || "/images/projects/default.jpg"}
+                    alt={project.name}
                     className="w-full h-40 object-cover"
                   />
                   <div className="p-6 flex flex-col flex-1">

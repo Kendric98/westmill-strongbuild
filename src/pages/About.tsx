@@ -48,7 +48,7 @@ const About = () => {
     },
     {
       year: "2020",
-      title: "KEBS Certification",
+      title: "NCA Certification",
       description: "Achieved Kenya Bureau of Standards certification, validating our quality management systems."
     },
     {
@@ -84,7 +84,7 @@ const About = () => {
     {
       icon: Award,
       title: "Proven Reliability",
-      description: "With over 500 completed projects and 15+ years of experience, we deliver consistent quality and on-time project completion."
+      description: "With over 100 completed projects and 8+ years of experience, we deliver consistent quality and on-time project completion."
     },
     {
       icon: Target,
@@ -137,7 +137,7 @@ const About = () => {
             Building Kenya's <span className="text-construction-yellow">Future</span>
           </h1>
           <p className="text-xl max-w-3xl mx-auto opacity-90 animate-slide-up">
-            For over 15 years, West Mill Concrete has been at the forefront of Kenya's construction industry, 
+            For over 8 years, West Mill Concrete has been at the forefront of Kenya's construction industry, 
             delivering innovative precast solutions that shape our nation's infrastructure.
           </p>
         </div>

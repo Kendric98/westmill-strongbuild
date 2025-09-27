@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProductShowcase from "@/components/ProductShowcase";
+import Gallery from "@/components/Gallery";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import OurProcess from "@/components/OurProcess";
 import Testimonials from "@/components/Testimonials";
@@ -26,7 +27,7 @@ const Index = () => {
           logo: "https://westmillconcrete.co.ke/westmill.svg",
           contactPoint: {
             "@type": "ContactPoint",
-            telephone: "+254700123456",
+            telephone: "+254793569990",
             contactType: "Customer Service",
             areaServed: "KE",
           },
@@ -39,6 +40,7 @@ const Index = () => {
       <Header />
       <Hero />
       <ProductShowcase />
+      <Gallery />
       <WhyChooseUs />
       <OurProcess />
       <IndustriesServed />
