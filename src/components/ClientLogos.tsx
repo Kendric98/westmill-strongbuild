@@ -77,7 +77,7 @@ const ClientLogos = () => {
                   {client.name}
                 </h4>
                 <span className="inline-block bg-construction-yellow/10 text-construction-yellow px-2 py-1 rounded-full text-xs font-medium">
-                  {client.category}
+                  {client.categories[0]}
                 </span>
               </CardContent>
             </Card>

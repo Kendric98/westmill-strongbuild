@@ -39,7 +39,7 @@ const Contact = () => {
         title: "Quote Request Sent!",
         description: "We have received your details and will reply within 24 hours.",
       });
-      setFormData({ name: "", email: "", phone: "", product: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", product: "", message: "", website: "" });
     } catch (err) {
       toast({
         title: "Submission failed",
