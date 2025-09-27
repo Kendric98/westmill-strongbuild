@@ -16,16 +16,16 @@ const Footer = () => {
               that build the future. Strong, reliable, built to last.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-construction-yellow transition-[var(--transition-smooth)]">
+              <a href="https://www.facebook.com/westmillconcrete" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-construction-yellow transition-[var(--transition-smooth)]">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-construction-yellow transition-[var(--transition-smooth)]">
+              <a href="https://x.com/westmillconcrete" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-construction-yellow transition-[var(--transition-smooth)]">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-construction-yellow transition-[var(--transition-smooth)]">
+              <a href="https://www.linkedin.com/company/westmillconcrete" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-construction-yellow transition-[var(--transition-smooth)]">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-construction-yellow transition-[var(--transition-smooth)]">
+              <a href="https://www.instagram.com/westmillconcrete/" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-construction-yellow transition-[var(--transition-smooth)]">
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
