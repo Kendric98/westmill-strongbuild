@@ -2,6 +2,21 @@ import { Building, Home, Factory, Landmark, Construction, ShoppingCart } from "l
 import { Card, CardContent } from "@/components/ui/card";
 
 const IndustriesServed = () => {
+  // Random cover images sourced from public/projects
+  const projectImages = [
+    "/projects/acknyeri.jpg",
+    "/projects/kmall.jpg",
+    "/projects/komarockcivil.jpg",
+    "/projects/wallphase3.jpg",
+    "/projects/nyeristage.jpg",
+    "/projects/rift-valley.jpg",
+    "/projects/faharigate.jpg",
+    "/projects/kilimambogottc.jpg",
+    "/projects/ntharenemarket.jpg",
+    "/projects/giantmillers.jpg",
+    "/projects/truck1.jpg",
+    "/projects/strabag.jpg"
+  ];
   const industries = [
     {
       icon: Construction,
@@ -71,6 +86,15 @@ const IndustriesServed = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="p-6">
+                {/* Random Cover Image */}
+                <div className="mb-4 -mt-2 -mx-6">
+                  <img
+                    src={projectImages[index % projectImages.length]}
+                    alt="Project preview"
+                    className="w-full h-36 object-cover"
+                    loading="lazy"
+                  />
+                </div>
                 {/* Icon & Header */}
                 <div className="flex items-center mb-4">
                   <div className={`w-12 h-12 bg-gradient-to-r ${industry.color} rounded-lg flex items-center justify-center mr-4`}>
@@ -115,19 +139,19 @@ const IndustriesServed = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-2xl font-bold text-construction-yellow mb-2">150+</div>
+              <div className="text-2xl font-bold text-construction-yellow mb-2">1000+</div>
               <div className="text-steel-gray text-sm">Residential Projects</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-construction-yellow mb-2">75+</div>
+              <div className="text-2xl font-bold text-construction-yellow mb-2">500+</div>
               <div className="text-steel-gray text-sm">Commercial Buildings</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-construction-yellow mb-2">50+</div>
+              <div className="text-2xl font-bold text-construction-yellow mb-2">75+</div>
               <div className="text-steel-gray text-sm">Infrastructure Projects</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-construction-yellow mb-2">25+</div>
+              <div className="text-2xl font-bold text-construction-yellow mb-2">50+</div>
               <div className="text-steel-gray text-sm">Government Contracts</div>
             </div>
           </div>
@@ -139,16 +163,16 @@ const IndustriesServed = () => {
             Looking for precast concrete solutions for your industry?
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-primary">
-              <a href="/contact">
+          <a href="/contact"><button className="btn-primary">
+              
               Discuss Your Project with Us
-             </a>
-            </button>
-            <button className="btn-outline">
+             
+            </button></a>
+            {/*<button className="btn-outline">
               <a href="#">
               View Case Studies
               </a>
-            </button>
+            </button>*/}  
           </div>
         </div>
       </div>

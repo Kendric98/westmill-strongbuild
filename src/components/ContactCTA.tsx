@@ -1,10 +1,55 @@
-import { Phone, Mail, MapPin, ArrowRight, MessageCircle } from "lucide-react";
+import { useState } from "react";
+import { Phone, Mail, MapPin, ArrowRight, MessageCircle, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactCTA = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    product: "",
+    message: "",
+    website: "" // honeypot
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      const resp = await fetch('/lead.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await resp.json().catch(() => ({ ok: false }));
+      if (!resp.ok || !data.ok) {
+        throw new Error('Submission failed');
+      }
+      toast({
+        title: "Quote Request Sent!",
+        description: "We have received your details and will reply within 24 hours.",
+      });
+      setFormData({ name: "", email: "", phone: "", product: "", message: "", website: "" });
+    } catch (err) {
+      toast({
+        title: "Submission failed",
+        description: "Please try again or contact us directly via phone or email.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -26,84 +71,110 @@ const ContactCTA = () => {
             <CardContent className="p-8">
               <h3 className="font-heading text-steel-gray mb-6">Request a Quote</h3>
               
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-steel-gray mb-2">
+                        Full Name *
+                      </label>
+                      <Input 
+                        id="name" 
+                        value={formData.name}
+                        onChange={(e) => handleChange('name', e.target.value)}
+                        placeholder="Enter your full name"
+                        required
+                        className="focus:ring-construction-yellow focus:border-construction-yellow"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-steel-gray mb-2">
+                        Phone Number *
+                      </label>
+                      <Input 
+                        id="phone" 
+                        value={formData.phone}
+                        onChange={(e) => handleChange('phone', e.target.value)}
+                        placeholder="+254 700 000 000"
+                        required
+                        className="focus:ring-construction-yellow focus:border-construction-yellow"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-steel-gray mb-2">
-                      Full Name *
+                    <label htmlFor="email" className="block text-sm font-medium text-steel-gray mb-2">
+                      Email Address *
                     </label>
                     <Input 
-                      id="name" 
-                      placeholder="Enter your full name"
+                      id="email" 
+                      type="email" 
+                      value={formData.email}
+                      onChange={(e) => handleChange('email', e.target.value)}
+                      placeholder="your.email@example.com"
+                      required
                       className="focus:ring-construction-yellow focus:border-construction-yellow"
                     />
                   </div>
+
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-steel-gray mb-2">
-                      Phone Number *
+                    <label htmlFor="product" className="block text-sm font-medium text-steel-gray mb-2">
+                      Product of Interest
                     </label>
-                    <Input 
-                      id="phone" 
-                      placeholder="+254 700 000 000"
+                    <Select value={formData.product} onValueChange={(value) => handleChange('product', value)}>
+                      <SelectTrigger className="focus:ring-construction-yellow focus:border-construction-yellow">
+                        <SelectValue placeholder="Select a product" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="pavers">Concrete Pavers</SelectItem>
+                        <SelectItem value="colored-pavers">Colored Pavers</SelectItem>
+                        <SelectItem value="culverts">Drainage Culverts</SelectItem>
+                        <SelectItem value="slabs">Precast Slabs</SelectItem>
+                        <SelectItem value="wall-panels">Wall Panels</SelectItem>
+                        <SelectItem value="kerb-stones">Kerb Stones</SelectItem>
+                        <SelectItem value="benches">Concrete Benches</SelectItem>
+                        <SelectItem value="drainage-blocks">Drainage Blocks</SelectItem>
+                        <SelectItem value="installation">Installation Services</SelectItem>
+                        <SelectItem value="fencing-posts">Fencing Posts</SelectItem>
+                        <SelectItem value="other">Other Products</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-steel-gray mb-2">
+                      Project Details *
+                    </label>
+                    <Textarea 
+                      id="message" 
+                      value={formData.message}
+                      onChange={(e) => handleChange('message', e.target.value)}
+                      placeholder="Tell us about your project requirements, timeline, quantity needed, and any specific needs..."
+                      rows={4}
+                      required
                       className="focus:ring-construction-yellow focus:border-construction-yellow"
                     />
                   </div>
-                </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-steel-gray mb-2">
-                    Email Address *
-                  </label>
-                  <Input 
-                    id="email" 
-                    type="email" 
-                    placeholder="your.email@example.com"
-                    className="focus:ring-construction-yellow focus:border-construction-yellow"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="product" className="block text-sm font-medium text-steel-gray mb-2">
-                    Product of Interest
-                  </label>
-                  <select 
-                    id="product"
-                    className="w-full px-3 py-2 border border-input rounded-md focus:ring-construction-yellow focus:border-construction-yellow"
+                  <Button 
+                    type="submit" 
+                    className="btn-primary w-full" 
+                    disabled={isSubmitting}
                   >
-                    <option value="">Select a product</option>
-                    <option value="pavers">Concrete Pavers</option>
-                    <option value="culverts">Drainage Culverts</option>
-                    <option value="slabs">Precast Slabs</option>
-                    <option value="wall-panels">Wall Panels</option>
-                    <option value="kerb-stones">Kerb Stones</option>
-                    <option value="benches">Concrete Benches</option>
-                    <option value="drainage-blocks">Drainage Blocks</option>
-                    <option value="installation">Installation Services</option>
-                  </select>
-                </div>
+                    {isSubmitting ? (
+                      <>Sending...</>
+                    ) : (
+                      <>
+                        Send Quote Request
+                        <Send className="ml-2 h-5 w-5" />
+                      </>
+                    )}
+                  </Button>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-steel-gray mb-2">
-                    Project Details
-                  </label>
-                  <Textarea 
-                    id="message" 
-                    placeholder="Tell us about your project requirements, timeline, and any specific needs..."
-                    rows={4}
-                    className="focus:ring-construction-yellow focus:border-construction-yellow"
-                  />
-                </div>
-
-                <Button className="btn-primary w-full">
-                  Send Quote Request
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-
-                <p className="text-xs text-muted-foreground text-center">
-                  By submitting this form, you agree to our privacy policy. 
-                  We'll respond within 24 hours with your custom quote.
-                </p>
-              </form>
+                  <p className="text-xs text-muted-foreground text-center">
+                    By submitting this form, you agree to our privacy policy. 
+                    We'll respond within 24 hours with your custom quote.
+                  </p>
+                </form>
             </CardContent>
           </Card>
 
@@ -120,7 +191,7 @@ const ContactCTA = () => {
                     <div>
                       <h4 className="font-semibold text-steel-gray mb-2">Call Us</h4>
                       <p className="text-muted-foreground mb-2">Get instant answers to your questions</p>
-                      <p className="text-construction-yellow font-medium">+254 700 123 456</p>
+                      <p className="text-construction-yellow font-medium">+254 793 569 990</p>
                       {/*<p className="text-construction-yellow font-medium">+254 722 789 012</p>*/}
                     </div>
                   </div>
@@ -152,7 +223,7 @@ const ContactCTA = () => {
                     <div>
                       <h4 className="font-semibold text-steel-gray mb-2">Visit Our Factory</h4>
                       <p className="text-muted-foreground mb-2">See our products and processes firsthand</p>
-                      <p className="text-steel-gray">Industrial Area, Nairobi</p>
+                      <p className="text-steel-gray">Thika Road, Opposite Mang'u High School</p>
                       <p className="text-steel-gray">Monday - Saturday: 8:00 AM - 5:00 PM</p>
                     </div>
                   </div>
@@ -168,10 +239,15 @@ const ContactCTA = () => {
                 <p className="text-muted-foreground mb-4">
                   Get instant responses via WhatsApp for urgent inquiries
                 </p>
-                <Button className="bg-green-600 hover:bg-green-700 text-white">
-                  Chat on WhatsApp
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                <a
+                  href="/contact"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Button className="bg-green-600 hover:bg-green-700 text-white w-full">
+                    Chat on WhatsApp: +254 793 569 990
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </a>
               </CardContent>
             </Card>
           </div>

@@ -1,6 +1,30 @@
 import { Card, CardContent } from "@/components/ui/card";
 
 const ClientLogos = () => {
+  const clientImages: Record<string, string> = {
+    "Constant Motors & Investment Limited": "/projects/commbuilding.jpg",
+    "Fahari Residence": "/projects/faharigate.jpg",
+    "Madisson Life Insurance": "/projects/project2.jpg",
+    "Rehani House": "/projects/rehanibeautification.jpg",
+    "Komarock Heights": "/projects/komarockwall.jpg",
+    "ACK Nyeri Cathedral": "/projects/acknyeri.jpg",
+    "Meru County Govenment": "/projects/ntharenemarket.jpg",
+    "St. Peters Cravers": "/projects/cravers.jpg",
+    "Nyeri County Government": "/projects/nyeristage.jpg",
+    "Kiambu County Government": "/projects/ruirustage.jpg",
+    "Kilimambogo Teachers' College": "/projects/kilimambogottc.jpg",
+    "Kibiricha Market": "/projects/kibiricha.jpg",
+    "Sogea Saton Kenya": "/projects/sogea.jpg",
+    "Giant Millers Limited": "/projects/giantmillers.jpg",
+    "Mt. Kenya University": "/projects/mku.jpg",
+    "PCEA Kahawa Sukari": "/projects/pceakahawa.jpg",
+    "Kahawa Barracks": "/projects/rift-valley.jpg",
+    "Thika Water & Sewerage Company": "/projects/thika.jpg",
+    "Jubilee Feeds Limited": "/projects/jubileefeeds.jpg",
+    "China Railway Seventh Group": "/projects/truck1.jpg",
+    "Strabag International - Thiba Dam": "/projects/strabag.jpg",
+    "Albizia Limited": "/projects/albizzia.jpg",
+  };
   const clients = [
     { name: "Constant Motors & Investment Limited", categories: ["Building", "Civil Works"] },
     { name: "Fahari Residence", categories: ["Civil Works"] },
@@ -65,11 +89,14 @@ const ClientLogos = () => {
               style={{ animationDelay: `${index * 0.05}s` }}
             >
               <CardContent className="p-6 text-center">
-                {/* Logo Placeholder */}
-                <div className="w-20 h-20 bg-gradient-to-br from-concrete-gray to-steel-gray/20 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:from-construction-yellow/20 group-hover:to-bold-orange/20 transition-all duration-300">
-                  <div className="text-2xl font-bold text-steel-gray group-hover:text-construction-yellow transition-colors">
-                    {client.name.split(' ').map(word => word[0]).join('').slice(0, 3)}
-                  </div>
+                {/* Project Photo */}
+                <div className="-mt-2 -mx-6 mb-4">
+                  <img
+                    src={clientImages[client.name] || "/projects/project1.jpg"}
+                    alt={`${client.name} project`}
+                    className="w-full h-28 object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 
                 {/* Client Info */}
@@ -129,16 +156,14 @@ const ClientLogos = () => {
             Join our list of satisfied clients and experience the West Mill difference
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn-primary">
-              <a href="/contact">
+          <a href="/contact"><button className="btn-primary">
               Start Your Partnership Now
-              </a>
-            </button>
-            <button className="btn-outline">
+            </button></a>
+            {/*<button className="btn-outline">
               <a href="#">
               View Success Stories
               </a>
-            </button>
+            </button>*/}
           </div>
         </div>
       </div>

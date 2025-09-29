@@ -6,26 +6,26 @@ const Testimonials = () => {
     {
       name: "James Mwangi",
       role: "Project Manager",
-      company: "Nairobi Metropolitan Services",
+      company: "Nyeri County",
       content: "West Mill Concrete delivered exceptional quality pavers for our road improvement project. The products exceeded our expectations and were delivered right on schedule.",
       rating: 5,
-      project: "Eastlands Road Project"
+      project: "Nyeri Road Project"
     },
     {
       name: "Sarah Njoki",
       role: "Construction Manager", 
-      company: "Equity Bank Building Project",
+      company: "Kiambu County",
       content: "Their precast slabs significantly reduced our construction timeline by 40%. Professional service from consultation to installation. Highly recommended for commercial projects.",
       rating: 5,
-      project: "Equity Bank Branch"
+      project: "Kiambu Road Project"
     },
     {
       name: "Michael Ochieng",
       role: "Infrastructure Director",
-      company: "Mombasa County",
+      company: "Meru County",
       content: "Outstanding drainage culverts that have withstood heavy rains without any issues. West Mill's products are built to last and their team provides excellent technical support.",
       rating: 5,
-      project: "Coastal Drainage System"
+      project: "Macadamia Processing Plant"
     }
   ];
 
@@ -91,7 +91,7 @@ const Testimonials = () => {
         {/* Trust Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center animate-fade-in">
           <div>
-            <div className="text-4xl font-bold text-construction-yellow mb-2">100+</div>
+            <div className="text-4xl font-bold text-construction-yellow mb-2">1000+</div>
             <div className="text-muted-foreground">Projects Completed</div>
           </div>
           <div>

@@ -16,26 +16,70 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Westmill Concrete | Precast Concrete Products in Kenya"
-        description="Westmill Concrete is a leading manufacturer of precast concrete products in Kenya. We provide pavers, culverts, slabs, kerb stones, wall panels, fencing posts, and more. Durable. Reliable. Affordable."
+        title="Westmill Concrete | Precast Concrete in Kenya | Paving Blocks Kenya"
+        description="Leading manufacturer of precast concrete in Kenya. Paving blocks in Kenya, concrete pavers, culverts, slabs, kerb stones, wall panels, fencing posts, and more. Durable, reliable, and affordable."
         canonicalUrl="https://www.westmillconcrete.co.ke/"
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "Westmill Concrete",
-          url: "https://westmillconcrete.co.ke",
-          logo: "https://westmillconcrete.co.ke/westmill.svg",
-          contactPoint: {
-            "@type": "ContactPoint",
-            telephone: "+254793569990",
-            contactType: "Customer Service",
-            areaServed: "KE",
-          },
-          sameAs: [
-            "https://www.facebook.com/westmillconcrete",
-            "https://www.linkedin.com/company/westmillconcrete",
-          ],
+        keywords={[
+          "precast concrete in kenya",
+          "paving blocks in kenya",
+          "paving blocks",
+          "concrete pavers kenya",
+          "precast slabs kenya",
+          "precast culverts kenya",
+          "kerb stones kenya",
+          "wall panels kenya"
+        ]}
+        og={{
+          title: "Westmill Concrete | Precast Concrete in Kenya",
+          description: "Paving blocks and precast concrete products manufactured in Kenya.",
+          type: "website",
+          image: "https://www.westmillconcrete.co.ke/westmill.svg",
+          url: "https://www.westmillconcrete.co.ke/"
         }}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Westmill Concrete",
+            url: "https://westmillconcrete.co.ke",
+            logo: "https://westmillconcrete.co.ke/westmill.svg",
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+254793569990",
+              contactType: "Customer Service",
+              areaServed: "KE",
+            },
+            sameAs: [
+              "https://www.facebook.com/westmillconcrete",
+              "https://www.linkedin.com/company/westmillconcrete",
+            ],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Westmill Concrete",
+            url: "https://www.westmillconcrete.co.ke/",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: "https://www.google.com/search?q=site:westmillconcrete.co.ke+{search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Site Navigation",
+            itemListElement: [
+              { "@type": "SiteNavigationElement", name: "Home", url: "https://www.westmillconcrete.co.ke/" },
+              { "@type": "SiteNavigationElement", name: "Products", url: "https://www.westmillconcrete.co.ke/products" },
+              { "@type": "SiteNavigationElement", name: "Our Projects", url: "https://www.westmillconcrete.co.ke/our-projects" },
+              { "@type": "SiteNavigationElement", name: "Gallery", url: "https://www.westmillconcrete.co.ke/gallery" },
+              { "@type": "SiteNavigationElement", name: "Services", url: "https://www.westmillconcrete.co.ke/services" },
+              { "@type": "SiteNavigationElement", name: "About", url: "https://www.westmillconcrete.co.ke/about" },
+              { "@type": "SiteNavigationElement", name: "Contact", url: "https://www.westmillconcrete.co.ke/contact" }
+            ]
+          }
+        ]}
       />
       <Header />
       <Hero />

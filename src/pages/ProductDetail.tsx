@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import paversImage from "@/assets/pavers.jpg";
 import culvertsImage from "@/assets/culverts.jpg";
 import slabsImage from "@/assets/slabs.jpg";
@@ -165,6 +166,33 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={`${product.title} | Precast Concrete in Kenya | Westmill Concrete`}
+        description={`${product.title} in Kenya. ${product.description}`}
+        canonicalUrl={`https://www.westmillconcrete.co.ke/products/${id}`}
+        keywords={[
+          "precast concrete in kenya",
+          "paving blocks in kenya",
+          "paving blocks",
+          `${product.title.toLowerCase()} kenya`
+        ]}
+        og={{
+          title: `${product.title} | Westmill Concrete`,
+          description: product.description,
+          type: "product",
+          image: `https://www.westmillconcrete.co.ke${product.image}`,
+          url: `https://www.westmillconcrete.co.ke/products/${id}`
+        }}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: product.title,
+          category: product.category,
+          description: product.description,
+          brand: { "@type": "Organization", name: "Westmill Concrete" },
+          url: `https://www.westmillconcrete.co.ke/products/${id}`
+        }}
+      />
       <Header />
       
       {/* Breadcrumb & Back */}

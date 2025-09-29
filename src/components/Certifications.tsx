@@ -11,8 +11,8 @@ const Certifications = () => {
     },
     {
       icon: Award,
-      title: "ISO 9001:2015",
-      description: "International quality management system certification",
+      title: "NCA Certified",
+      description: "National Construction Authority certification",
       standard: "Quality Management"
     },
     {
@@ -120,7 +120,7 @@ const Certifications = () => {
               <div className="text-steel-gray font-medium">Years of Excellence</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-construction-yellow mb-2">100+</div>
+              <div className="text-3xl font-bold text-construction-yellow mb-2">1000+</div>
               <div className="text-steel-gray font-medium">Projects Completed</div>
             </div>
             <div className="text-center">

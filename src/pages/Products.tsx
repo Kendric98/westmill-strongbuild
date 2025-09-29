@@ -203,9 +203,25 @@ const Products = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Precast Products | Pavers, Culverts, Slabs & More | Westmill Concrete"
-        description="Explore our wide range of precast products: pavers, culverts, slabs, kerb stones, colored pavers, fencing posts, wall panels, hollow blocks, and more. Quality guaranteed."
+        title="Paving Blocks in Kenya | Precast Concrete Products | Westmill Concrete"
+        description="Explore paving blocks in Kenya and premium precast concrete products: concrete pavers, culverts, slabs, kerb stones, fencing posts, wall panels, hollow blocks, and more. Quality guaranteed."
         canonicalUrl="https://www.westmillconcrete.co.ke/products"
+        keywords={[
+          "paving blocks in kenya",
+          "paving blocks",
+          "precast concrete in kenya",
+          "concrete pavers kenya",
+          "concrete products kenya",
+          "precast slabs kenya",
+          "culverts kenya"
+        ]}
+        og={{
+          title: "Paving Blocks in Kenya | Precast Concrete Products",
+          description: "Kenya's paving blocks and precast concrete products by Westmill Concrete.",
+          type: "website",
+          image: "https://www.westmillconcrete.co.ke/images/pavers.jpg",
+          url: "https://www.westmillconcrete.co.ke/products"
+        }}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "ProductCollection",
