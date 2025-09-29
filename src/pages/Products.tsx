@@ -231,9 +231,9 @@ const Products = () => {
               <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Download Full Catalog
             </Button>
-            <Button className="btn-outline w-full sm:w-auto">
-              Request Custom Quote
-            </Button>
+            <a href="/contact"> <Button className="btn-outline w-full sm:w-auto">
+               Request Custom Quote
+            </Button></a>
           </div>
         </div>
       </section>
@@ -324,14 +324,14 @@ const Products = () => {
                               </div>
                             </div>
                           </div>
-                          <div>
+                          {/* <div>
                             <h4 className="font-semibold text-steel-gray mb-2">Pricing Range:</h4>
                             <p className="text-sm text-muted-foreground">KSh 150 - 350 per m² (varies by design)</p>
                           </div>
                           <div>
                             <h4 className="font-semibold text-steel-gray mb-2">Sizes Available:</h4>
                             <p className="text-sm text-muted-foreground">200x100x60mm, 200x200x60mm, Custom sizes</p>
-                          </div>
+                          </div> */}
                         </div>
                       ) : (
                         <div className="space-y-3">
@@ -352,13 +352,13 @@ const Products = () => {
                           </div>
                         </div>
                       )}
-                      <Button 
+                      {/* <Button 
                         className="w-full mt-4 btn-outline text-sm"
                         onClick={() => window.location.href = `/products/${product.id}`}
                       >
                         View Full Specifications
                         <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
+                      </Button> */}
                     </div>
                   )}
                   

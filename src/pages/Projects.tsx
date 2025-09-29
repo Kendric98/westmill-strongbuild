@@ -268,12 +268,12 @@ const Projects = () => (
     <SEO
       title="Projects | Westmill Concrete | Kenya’s Trusted Precast Solutions"
       description="View our completed projects across Kenya. From roads, drainage, and housing to industrial construction—Westmill Concrete delivers reliable precast solutions."
-      canonicalUrl="https://www.westmillconcrete.co.ke/projects"
+      canonicalUrl="https://www.westmillconcrete.co.ke/our-projects"
       jsonLd={{
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         name: "Westmill Concrete Projects",
-        url: "https://westmillconcrete.co.ke/projects",
+        url: "https://westmillconcrete.co.ke/our-projects",
         about: "Showcase of Westmill Concrete's precast concrete projects in Kenya.",
       }}
     />
