@@ -1,14 +1,15 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+
+# Important: ensure product pages are crawlable
+Allow: /products
+Allow: /products/
+Allow: /products/*
+
+# Disallow non-content/admin paths (future-proofing)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://westmillconcrete.co.ke/sitemap.xml

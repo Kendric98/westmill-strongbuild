@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import paversImage from "@/assets/pavers2.jpg";
 import culvertsImage from "@/assets/culverts.jpg";
-import socketculvertsImage from "@/assets/culverts.jpg";
+import socketculvertsImage from "@/assets/socket-culvers.jpg";
 import slabsImage from "@/assets/slab.jpg";
 import wallPanelsImage from "@/assets/wall-panels.jpg";
 import kerbStonesImage from "@/assets/kerb-stones.jpg";
